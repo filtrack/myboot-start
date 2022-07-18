@@ -21,8 +21,8 @@ public class MainTest {
 //        tc4();
 //        tc5();
 //        tc6();
-//        tc7();
-        tc8();
+        tc7();
+//        tc8();
     }
 
     private static void tc8() {
