@@ -1,0 +1,19 @@
+{
+  "serverUrl": "http://localhost/api",
+  "allInOne": true,
+  "createDebugPage": true,
+  "allInOneDocFileName":"index.html",
+  "projectName": "MyBoot-Stater",
+  "outPath": "src/main/resources/static/doc/",
+  "requestHeaders": [
+    {
+      "name": "token",
+      "type": "string",
+      "desc": "自定义请求头token",
+      "value":"123456",
+      "required": true,
+      "since": "-",
+      "pathPatterns": "/api/hello"
+    }
+  ]
+}

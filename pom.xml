@@ -17,8 +17,10 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <druid-starter.version>1.2.8</druid-starter.version>
-        <mp-starter.version>3.5.1</mp-starter.version>
+        <druid-starter.version>1.2.11</druid-starter.version>
+        <mp-starter.version>3.5.2</mp-starter.version>
+        <orika.version>1.5.4</orika.version>
+        <fastjson.version>2.0.7</fastjson.version>
     </properties>
 
     <dependencies>
@@ -54,6 +56,16 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>${mp-starter.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ma.glasnost.orika</groupId>
+            <artifactId>orika-core</artifactId>
+            <version>${orika.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -64,6 +76,10 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -71,6 +87,15 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.github.shalousun</groupId>
+                <artifactId>smart-doc-maven-plugin</artifactId>
+                <version>2.2.7</version>
+                <configuration>
+                    <configFile>./src/main/resources/smart-doc.json</configFile>
+                    <projectName>Smart-Doc初体验</projectName>
+                </configuration>
             </plugin>
         </plugins>
     </build>
