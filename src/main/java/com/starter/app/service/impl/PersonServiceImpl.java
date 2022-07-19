@@ -37,12 +37,12 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public PageVo<Person> queryPage(Map map) {
+    public PageVo queryPage(Map map) {
         Page<Person> page = new Page<>(1,1);
         QueryWrapper queryWrapper = new QueryWrapper();
         personMapper.selectPage(page,queryWrapper);
         System.out.println(JSON.toJSONString(page));
-        PageVo<Person> vo = OrikaUtils.convert(page, PageVo.class);
+        PageVo vo = OrikaUtils.convert(page, PageVo.class);
         return vo;
     }
 

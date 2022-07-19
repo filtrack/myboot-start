@@ -1,9 +1,16 @@
 package com.starter.app.utils;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.starter.app.dto.PageVo;
+import com.starter.app.dto.UserDto;
+import com.starter.app.entity.User;
 import ma.glasnost.orika.MapperFacade;
 import ma.glasnost.orika.MapperFactory;
+import ma.glasnost.orika.MappingContext;
+import ma.glasnost.orika.converter.BidirectionalConverter;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
 import ma.glasnost.orika.metadata.ClassMapBuilder;
+import ma.glasnost.orika.metadata.Type;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
@@ -14,7 +21,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class OrikaUtils {
 
-    private static final MapperFactory FACTORY = new DefaultMapperFactory.Builder().mapNulls(true).build();
+    private static final MapperFactory FACTORY = new DefaultMapperFactory.Builder().build();
     private static final Map<String, MapperFacade> CACHE_MAPPER = new ConcurrentHashMap<>();
     private final MapperFacade mapper;
 
@@ -37,6 +44,7 @@ public class OrikaUtils {
         }
         return classMap(sourceEntity.getClass(), targetClass, refMap).map(sourceEntity, targetClass);
     }
+
 
     /**
      * 转换实体函数
@@ -102,6 +110,13 @@ public class OrikaUtils {
         }
     }
 
+
+    public static synchronized PageVo convertPageVo(Page page,Class target) {
+        page.convert(item -> OrikaUtils.convert(item, target));
+        PageVo pageVo = OrikaUtils.convert(page,PageVo.class);
+        return pageVo;
+    }
+
     /**
      * 属性名称一致可用
      * @param source 源数据
@@ -111,6 +126,8 @@ public class OrikaUtils {
     private static <V, P> OrikaUtils classMap(Class<V> source, Class<P> target) {
         return classMap(source, target, null);
     }
+
+
 
     /**
      * 属性名称不一致可用
@@ -129,6 +146,7 @@ public class OrikaUtils {
         CACHE_MAPPER.put(key, mapperFacade);
         return new OrikaUtils(mapperFacade);
     }
+
 
 
 
@@ -151,4 +169,5 @@ public class OrikaUtils {
     private <V, P> List<P> mapAsList(List<V> source, Class<P> target) {
         return CollectionUtils.isEmpty(source) ? Collections.emptyList() : mapper.mapAsList(source, target);
     }
+
 }
