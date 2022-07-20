@@ -114,6 +114,9 @@ public class OrikaUtils {
     public static synchronized PageVo convertPageVo(Page page,Class target) {
         page.convert(item -> OrikaUtils.convert(item, target));
         PageVo pageVo = OrikaUtils.convert(page,PageVo.class);
+        pageVo.setPageSize(page.getPages());
+        pageVo.setHasNext(page.hasNext());
+        pageVo.setHasPrevious(page.hasPrevious());
         return pageVo;
     }
 

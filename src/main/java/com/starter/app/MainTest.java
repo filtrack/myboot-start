@@ -48,8 +48,6 @@ public class MainTest {
         Map<String,String> refMap1 = new HashMap<>();
         //map key 放置 源属性，value 放置 目标属性
         refMap1.put("email","emailAddress");
-
-
         Map<String, String> refMap2 = new HashMap<>();
         refMap2.put("studentGradeName","teacherGradeName");
         refMap2.put("studentList","teacherList");

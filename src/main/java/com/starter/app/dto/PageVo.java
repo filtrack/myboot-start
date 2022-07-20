@@ -23,6 +23,21 @@ public class PageVo<T> implements Serializable {
     private long current = 1;
 
     /**
+     * 总页数
+     */
+    private long pageSize;
+
+    /**
+     * 是否有下一页
+     */
+    private boolean hasNext;
+
+    /**
+     * 是否有上一页
+     */
+    private boolean hasPrevious;
+
+    /**
      * 数据
      */
     private List<T> records;

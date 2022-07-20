@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.starter.app.entity.User">
+<mapper namespace="com.starter.app.mapper.UserMapper">
     <sql id="tableName">
         user
     </sql>
@@ -8,5 +8,10 @@
     <sql id="baseColumn">
         id,name,age,email
     </sql>
+
+
+    <select id="findByUserName" resultType="com.starter.app.entity.User">
+        select * from user where name = #{name}
+    </select>
 
 </mapper>

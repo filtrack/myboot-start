@@ -1,19 +1,26 @@
 package com.starter.app.controller;
 
+import com.starter.app.dto.PageVo;
 import com.starter.app.dto.Student;
+import com.starter.app.dto.UserDto;
 import com.starter.app.result.CommonResult;
+import com.starter.app.service.UserService;
 import com.starter.app.validation.Crud;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @RestController
 public class IndexController {
+
+    @Autowired
+    UserService userService;
 
     /**
      * 最简单的测试
@@ -23,6 +30,28 @@ public class IndexController {
     @GetMapping("/hello")
     public Object getStr(String userName){
         return CommonResult.success(userName);
+    }
+
+    /**
+     * 用户列表
+     * @param  dto 用户
+     * @return
+     */
+    @PostMapping("/users")
+    public Object users(UserDto dto){
+        PageVo<UserDto> pageResult =  userService.queryPage(dto);
+        return CommonResult.success(pageResult);
+    }
+
+    /**
+     * 用户列表
+     * @param  id 用户
+     * @return
+     */
+    @PostMapping("/user")
+    public Object user(Long id){
+        UserDto userDto = userService.findUserById(id);
+        return CommonResult.success(userDto);
     }
 
 

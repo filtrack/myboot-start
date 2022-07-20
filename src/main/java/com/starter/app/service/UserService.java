@@ -13,6 +13,10 @@ import java.util.Map;
 public interface UserService {
 
     boolean add(User user);
-    PageVo<UserDto> queryPage(Map map);
 
+    PageVo<UserDto> queryPage(UserDto userDto);
+
+    UserDto findUserById(Long id);
+
+    User findByUserName(String username);
 }

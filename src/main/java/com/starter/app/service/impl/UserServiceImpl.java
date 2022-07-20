@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.starter.app.dto.MyPage;
 import com.starter.app.dto.PageVo;
 import com.starter.app.dto.UserDto;
 import com.starter.app.entity.Person;
@@ -18,18 +19,19 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
+import org.omg.CORBA.ORB;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
  * 服务接口实现
  */
-@Slf4j
-@RequiredArgsConstructor
+
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -42,13 +44,23 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public PageVo<UserDto> queryPage(Map map) {
-
+    public PageVo<UserDto> queryPage(UserDto dto) {
+        LinkedHashMap orderMap = new LinkedHashMap();
+        orderMap.put("id","asc");
+        Page<User> page = MyPage.of(dto.getPage(),dto.getSize(),orderMap);
         QueryWrapper queryWrapper = new QueryWrapper();
-        Page<User> page = userMapper.selectPage(Page.of(1,10),queryWrapper);
-
+        userMapper.selectPage(page,queryWrapper);
         return OrikaUtils.convertPageVo(page,UserDto.class);
     }
 
+    @Override
+    public UserDto findUserById(Long id) {
+        User user = userMapper.selectById(id);
+        return OrikaUtils.convert(user,UserDto.class);
+    }
 
+    @Override
+    public User findByUserName(String username) {
+        return userMapper.findByUserName(username);
+    }
 }

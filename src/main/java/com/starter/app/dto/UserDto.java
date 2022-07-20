@@ -11,9 +11,8 @@ import java.io.Serializable;
  * (person)实体类
  */
 @Data
-public class UserDto implements Serializable {
+public class UserDto extends ReqPage implements Serializable {
     private static final long serialVersionUID = 1L;
-
     /**
      * 姓名
      */
