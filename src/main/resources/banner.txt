@@ -1,0 +1,6 @@
+
+${AnsiColor.BRIGHT_RED}
+-----------------------------
+|       MyBoot-Starter      |
+-----------------------------
+SpringBoot Version : ${spring-boot.formatted-version}

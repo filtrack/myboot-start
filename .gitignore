@@ -5,3 +5,5 @@
 /mvnw.cmd
 /myboot-starter.iml
 /src/main/resources/static/doc/
+/myboot-starter/
+/node_modules/

@@ -36,6 +36,22 @@ spring:
             # 要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true。
             max-pool-prepared-statement-per-connection-size: 50
 
+    redis:
+        host: 54.163.50.721
+        password: 123456
+        port: 6379
+        timeout: 50000
+        lettuce:
+            pool:
+                enabled: true
+                # 连接池最大连接数（使用负值表示没有限制）
+                max-active: 8
+                # 连接池最大阻塞等待时间（使用负值表示没有限制）
+                max-wait: -1
+                # 连接池中的最大空闲连接
+                max-idle: 8
+                # 连接池中的最小空闲连接
+                min-idle: 1
 
 
 logging:

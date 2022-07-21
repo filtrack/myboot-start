@@ -1,6 +1,6 @@
 package com.starter.app.dto;
 
-import com.starter.app.validation.Crud;
+import com.starter.app.validation.ValidGroup;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,20 +21,20 @@ public class Student {
     /**
      * 学生id
      */
-    @Null(groups = Crud.Create.class)
-    @NotBlank(groups = Crud.Update.class,message = "ID不能为空")
+    @Null(groups = ValidGroup.Create.class)
+    @NotBlank(groups = ValidGroup.Update.class,message = "ID不能为空")
     private String id;
 
     /**
      * 学生姓名
      */
-    @NotBlank(groups = Crud.Update.class,message = "应用ID不能为空")
+    @NotBlank(groups = ValidGroup.Update.class,message = "应用ID不能为空")
     @Length(min = 12,max = 24)
     private String name;
 
     /**
      * 学生邮箱
      */
-    @NotBlank(groups = Crud.Update.class,message = "应用ID不能为空")
+    @NotBlank(groups = ValidGroup.Update.class,message = "应用ID不能为空")
     private String email;
 }

@@ -1,17 +1,15 @@
 package com.starter.app.controller;
 
+import com.starter.app.annotation.Log;
 import com.starter.app.dto.PageVo;
 import com.starter.app.dto.Student;
 import com.starter.app.dto.UserDto;
 import com.starter.app.result.CommonResult;
 import com.starter.app.service.UserService;
-import com.starter.app.validation.Crud;
+import com.starter.app.validation.ValidGroup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -23,23 +21,14 @@ public class IndexController {
     UserService userService;
 
     /**
-     * 最简单的测试
-     * @param userName 用户
-     * @return
-     */
-    @GetMapping("/hello")
-    public Object getStr(String userName){
-        return CommonResult.success(userName);
-    }
-
-    /**
      * 用户列表
-     * @param  dto 用户
+     * @param  userDto 用户
      * @return
      */
+    @Log("请求用户列表")
     @PostMapping("/users")
-    public Object users(UserDto dto){
-        PageVo<UserDto> pageResult =  userService.queryPage(dto);
+    public Object users(UserDto userDto){
+        PageVo<UserDto> pageResult =  userService.queryPage(userDto);
         return CommonResult.success(pageResult);
     }
 
@@ -48,33 +37,11 @@ public class IndexController {
      * @param  id 用户
      * @return
      */
-    @PostMapping("/user")
-    public Object user(Long id){
+    @Log("请求用户详情")
+    @PostMapping("/user/{id}")
+    public Object user(@PathVariable("id") Long id){
         UserDto userDto = userService.findUserById(id);
         return CommonResult.success(userDto);
     }
 
-
-    /**
-     * 这个是错误接口测试吗
-     * @param student 校验
-     * @return
-     */
-    @GetMapping("/wrong")
-    public Object wrong(@RequestBody @Validated(value = {Crud.Create.class})  Student student){
-        int i = 9/0;
-        return CommonResult.success(i);
-    }
-
-    /**
-     *
-     * @param student1 校验
-     * @return
-     */
-    @GetMapping("/obj")
-    public Object obj(@Validated(value = {Crud.Update.class})  Student student1){
-        Student student = new Student("1","javadaily","jianzh5@163.com");
-        Student student2 = new Student("1","javadaily22","jianzh5@163.com");
-        return CommonResult.success(Stream.of(student,student2).collect(Collectors.toList()));
-    }
 }
