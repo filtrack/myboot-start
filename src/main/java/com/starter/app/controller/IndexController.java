@@ -7,6 +7,7 @@ import com.starter.app.dto.UserDto;
 import com.starter.app.result.CommonResult;
 import com.starter.app.service.UserService;
 import com.starter.app.validation.ValidGroup;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Slf4j
 @RestController
 public class IndexController {
 
@@ -28,6 +30,7 @@ public class IndexController {
     @Log("请求用户列表")
     @PostMapping("/users")
     public Object users(UserDto userDto){
+        log.info("请求用户列表 .....");
         PageVo<UserDto> pageResult =  userService.queryPage(userDto);
         return CommonResult.success(pageResult);
     }

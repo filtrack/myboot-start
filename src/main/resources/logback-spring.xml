@@ -9,14 +9,14 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
 
     <!-- 关闭logback启动日志 -->
     <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
-    <!-- 定义日志文件名称 -->
-    <property name="APP_NAME" value="myboot-starter" />
+<!--    &lt;!&ndash; 定义日志文件名称 &ndash;&gt;-->
+<!--    <property name="APP_NAME" value="myboot-starter" />-->
     <!-- 日志存放路径 -->
-    <property name="LOG_PATH" value="${user.dir}/${APP_NAME}/logs" />
-    <property name="LOG_BK_PATH" value="${user.dir}/${APP_NAME}/logs/bk" />
+    <property name="LOG_PATH" value="${user.dir}/logs" />
+    <property name="LOG_BK_PATH" value="${user.dir}/logs/bk" />
 
     <!-- 日志输出格式 -->
-    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} %thread-%-5level %logger{50}:%line - %msg%n" />
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} %X{traceId} %-5level %logger{50}:%line - %msg%n" />
 
     <!-- 控制台输出 -->
     <appender name="log_console" class="ch.qos.logback.core.ConsoleAppender">
@@ -29,7 +29,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
     <appender name="log_info" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_PATH}/info.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_BK_PATH}/info.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>${LOG_BK_PATH}/info.%d{yyyy-MM-dd_HH}.log</fileNamePattern>
             <maxHistory>10</maxHistory>
         </rollingPolicy>
         <encoder>
@@ -46,7 +46,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
     <appender name="log_error" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_PATH}/error.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_BK_PATH}/error.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>${LOG_BK_PATH}/error.%d{yyyy-MM-dd_HH}.log</fileNamePattern>
             <maxHistory>10</maxHistory>
         </rollingPolicy>
         <encoder>
@@ -62,7 +62,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
     <appender name="log_api" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_PATH}/api.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_BK_PATH}/api.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>${LOG_BK_PATH}/api.%d{yyyy-MM-dd_HH}.log</fileNamePattern>
             <maxHistory>10</maxHistory>
         </rollingPolicy>
         <encoder>
@@ -70,14 +70,21 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
         </encoder>
     </appender>
 
-    <logger name="org.springframework" level="WARN"/>
+<!--    <logger name="org.hibernate" level="WARN"/>-->
+<!--    <logger name="org.apache" level="WARN"/>-->
+<!--    <logger name="com.alibaba" level="WARN"/>-->
+<!--    <logger name="org.springframework" level="WARN"/>-->
+
     <logger name="com.starter.app" level="INFO"/>
+
+    <logger name="com.starter.app.aop.LogAspect" level="INFO">
+        <appender-ref ref="log_api" />
+    </logger>
 
     <root level="INFO">
         <appender-ref ref = "log_console" />
         <appender-ref ref ="log_info"/>
         <appender-ref ref ="log_error"/>
-        <appender-ref ref ="log_api"/>
     </root>
 
 </configuration>

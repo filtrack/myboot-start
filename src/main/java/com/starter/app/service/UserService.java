@@ -10,14 +10,12 @@ import org.springframework.cache.annotation.Cacheable;
 /**
  * 服务接口
  */
-@CacheConfig(cacheNames = "user")
 public interface UserService {
 
     boolean add(User user);
 
     PageVo<UserDto> queryPage(UserDto userDto);
 
-    @Cacheable(key = "#p0")
     UserDto findUserById(Long id);
 
     User findByUserName(String username);

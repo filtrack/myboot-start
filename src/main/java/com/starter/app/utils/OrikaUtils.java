@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.starter.app.dto.PageVo;
 import com.starter.app.dto.UserDto;
 import com.starter.app.entity.User;
+import lombok.extern.slf4j.Slf4j;
 import ma.glasnost.orika.MapperFacade;
 import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.MappingContext;
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+@Slf4j
 public class OrikaUtils {
 
     private static final MapperFactory FACTORY = new DefaultMapperFactory.Builder().build();
@@ -56,6 +58,8 @@ public class OrikaUtils {
      * @return 目标实体
      */
     public static <S, T> T convert(S sourceEntity, Class<T> targetClass) {
+        log.info("对象转换："+ sourceEntity.toString());
+        log.error("对象转换模拟错误日志");
         return convert(sourceEntity, targetClass, null);
     }
 
