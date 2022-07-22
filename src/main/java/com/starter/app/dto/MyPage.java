@@ -10,8 +10,8 @@ import java.util.List;
 
 public class MyPage<T> extends Page<T> {
 
-    public static Page of(long row, long pageSize, LinkedHashMap<String,String> orderMap) {
-        Page page = new Page(row, pageSize);
+    public static <T> Page<T> of(long row, long pageSize, LinkedHashMap<String,String> orderMap) {
+        Page<T> page = new Page<>(row, pageSize);
         if(!ObjectUtils.isEmpty(orderMap)){
             List<OrderItem> orderItemList = new ArrayList<>();
             orderMap.forEach((key,value)->{

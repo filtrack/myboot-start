@@ -3,6 +3,7 @@ package com.starter.app.entity;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
@@ -10,7 +11,9 @@ import java.io.Serializable;
 /**
  * (person)实体类
  */
+
 @Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class User extends Model<User> implements Serializable {
     private static final long serialVersionUID = 1L;

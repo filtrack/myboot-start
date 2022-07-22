@@ -70,14 +70,12 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
         </encoder>
     </appender>
 
-<!--    <logger name="org.hibernate" level="WARN"/>-->
-<!--    <logger name="org.apache" level="WARN"/>-->
-<!--    <logger name="com.alibaba" level="WARN"/>-->
-<!--    <logger name="org.springframework" level="WARN"/>-->
-
+    <logger name="org.hibernate" level="WARN"/>
+    <logger name="org.apache" level="WARN"/>
+    <logger name="com.alibaba" level="WARN"/>
     <logger name="com.starter.app" level="INFO"/>
 
-    <logger name="com.starter.app.aop.LogAspect" level="INFO">
+    <logger name="com.starter.app.aop.LogAccessAspect" level="INFO" additivity="false">
         <appender-ref ref="log_api" />
     </logger>
 

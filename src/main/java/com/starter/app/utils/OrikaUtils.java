@@ -2,16 +2,11 @@ package com.starter.app.utils;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.starter.app.dto.PageVo;
-import com.starter.app.dto.UserDto;
-import com.starter.app.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import ma.glasnost.orika.MapperFacade;
 import ma.glasnost.orika.MapperFactory;
-import ma.glasnost.orika.MappingContext;
-import ma.glasnost.orika.converter.BidirectionalConverter;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
 import ma.glasnost.orika.metadata.ClassMapBuilder;
-import ma.glasnost.orika.metadata.Type;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
@@ -58,8 +53,6 @@ public class OrikaUtils {
      * @return 目标实体
      */
     public static <S, T> T convert(S sourceEntity, Class<T> targetClass) {
-        log.info("对象转换："+ sourceEntity.toString());
-        log.error("对象转换模拟错误日志");
         return convert(sourceEntity, targetClass, null);
     }
 
@@ -115,13 +108,9 @@ public class OrikaUtils {
     }
 
 
-    public static synchronized PageVo convertPageVo(Page page,Class target) {
-        page.convert(item -> OrikaUtils.convert(item, target));
-        PageVo pageVo = OrikaUtils.convert(page,PageVo.class);
-        pageVo.setPageSize(page.getPages());
-        pageVo.setHasNext(page.hasNext());
-        pageVo.setHasPrevious(page.hasPrevious());
-        return pageVo;
+    public static synchronized <S, P> PageVo<P> convertPageVo(Page<S> page,Class<P> target) {
+        List<P> dataList = OrikaUtils.convertList(page.getRecords(),target);
+        return new PageVo<>(dataList,page.getTotal(),page.getPages(),page.hasNext(),page.hasPrevious(),page.getCurrent(),page.getSize());
     }
 
     /**

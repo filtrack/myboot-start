@@ -3,11 +3,10 @@ package com.starter.app.aop;
 import com.starter.app.result.CommonResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.validation.BindException;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -29,12 +28,19 @@ public class RestExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public CommonResult<String> exception(Exception e) {
-        log.error("全局异常信息 ex={}", e.getMessage(), e);
+        log.error("全局异常信息:",e);
         return CommonResult.error(CommonResult.ResponseCode.ERROR_SYS.getCode(),e.getMessage());
+    }
+
+    @ExceptionHandler(value = { IllegalArgumentException.class,IllegalStateException.class})
+    public CommonResult<String> handleHttpMessageNotReadableException(Exception e) {
+        log.error("异常信息:",e);
+        return CommonResult.error(CommonResult.ResponseCode.ERROR_CUS.getCode(),e.getMessage());
     }
 
     @ExceptionHandler(value = {BindException.class, ValidationException.class, MethodArgumentNotValidException.class})
     public CommonResult<String> handleValidatedException(Exception e) {
+        log.error("参数信息异常:",e);
         if (e instanceof MethodArgumentNotValidException) {
             // BeanValidation exception
             MethodArgumentNotValidException ex = (MethodArgumentNotValidException) e;

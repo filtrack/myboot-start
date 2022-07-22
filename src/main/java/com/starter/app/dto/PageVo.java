@@ -1,31 +1,36 @@
 package com.starter.app.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PageVo<T> implements Serializable {
 
-    private long total = 0;
+    /**
+     * 当前页
+     */
+    private long page = 1;
+
     /**
      * 每页显示条数，默认 10
      */
     private long size = 10;
 
     /**
-     * 当前页
-     */
-    private long current = 1;
-
-    /**
      * 总页数
      */
     private long pageSize;
+
+    /**
+     * 总条数
+     */
+    private long total = 0;
 
     /**
      * 是否有下一页
@@ -42,4 +47,14 @@ public class PageVo<T> implements Serializable {
      */
     private List<T> records;
 
+
+    public PageVo(List<T> dataList,long total, long pageSize, boolean hasNext, boolean hasPrevious, long page, long size) {
+        this.records = dataList;
+        this.total = total;
+        this.pageSize = pageSize;
+        this.hasNext = hasNext;
+        this.hasPrevious = hasPrevious;
+        this.page = page;
+        this.size = size;
+    }
 }
