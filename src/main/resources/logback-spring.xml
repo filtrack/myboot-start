@@ -18,10 +18,12 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
     <!-- 日志输出格式 -->
     <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} %X{traceId} %-5level %logger{50}:%line - %msg%n" />
 
+    <property name="CONSOLE_LOG_PATTERN" value="%d{yyyyMMdd HH:mm:ss} %red(%msg%n)" />
+
     <!-- 控制台输出 -->
     <appender name="log_console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>${LOG_PATTERN}</pattern>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
         </encoder>
     </appender>
 
@@ -84,5 +86,9 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
         <appender-ref ref ="log_info"/>
         <appender-ref ref ="log_error"/>
     </root>
+
+    <springProfile name="dev">
+        <logger name="com.starter.app" level="DEBUG"/>
+    </springProfile>
 
 </configuration>

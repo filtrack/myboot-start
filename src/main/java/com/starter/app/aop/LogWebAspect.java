@@ -53,7 +53,7 @@ public class LogWebAspect {
         }
         // 执行时长(毫秒)
         long time = System.currentTimeMillis() - beginTime;
-        log.info("请求耗时:{}毫秒,响应结果:{}", time, result);
+        log.info("请求耗时:[{}毫秒],响应结果:{} \n", time, result);
         return result;
     }
 

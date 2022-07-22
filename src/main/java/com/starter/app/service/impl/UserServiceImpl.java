@@ -51,9 +51,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto findUserById(Long id) {
-        log.info("参数信息 id:"+ id);
         User user = userMapper.selectById(id);
-        log.debug("debug 参数信息 id:"+ id);
         return OrikaUtils.convert(user,UserDto.class);
     }
 
