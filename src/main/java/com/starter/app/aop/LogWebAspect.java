@@ -35,7 +35,7 @@ public class LogWebAspect {
         // 请求的方法参数名称
         LocalVariableTableParameterNameDiscoverer u = new LocalVariableTableParameterNameDiscoverer();
         String[] paramNames = u.getParameterNames(method);
-        StringBuilder params = new StringBuilder("");
+        StringBuilder params = new StringBuilder();
         if (args != null && paramNames != null) {
             for (int i = 0; i < args.length; i++) {
                 params.append(paramNames[i]).append(":").append(args[i]).append(" ");
