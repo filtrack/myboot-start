@@ -7,6 +7,7 @@ import com.starter.app.result.CommonResult;
 import com.starter.app.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,7 +40,7 @@ public class IndexController {
      * @return CommonResult
      */
     @Log("请求用户详情")
-    @PostMapping("/user/{id}")
+    @GetMapping("/user/{id}")
     public Object user(@PathVariable("id") Long id){
         UserDto userDto = userService.findUserById(id);
         Assert.notNull(userDto, "用户不存在！");
