@@ -30,7 +30,7 @@ public @interface RateLimiter {
     LimitType limitType() default LimitType.DEFAULT;
 
 
-    public enum LimitType {
+    enum LimitType {
         /**
          * 默认策略全局限流
          */
