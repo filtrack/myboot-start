@@ -71,4 +71,5 @@ spring:
 #        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 jwt:
-    key: "springboot"
+    secret: "springboot"
+    expire: 300

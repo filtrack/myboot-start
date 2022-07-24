@@ -3,10 +3,12 @@ package com.starter.app.controller;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.IdUtil;
 import com.starter.app.annotation.Log;
+import com.starter.app.config.GlobalParams;
 import com.starter.app.dto.AccountToken;
 import com.starter.app.dto.PageVo;
 import com.starter.app.dto.UserDto;
 import com.starter.app.result.CommonResult;
+import com.starter.app.service.JWTService;
 import com.starter.app.service.RedisService;
 import com.starter.app.service.UserService;
 import com.starter.app.utils.JWTUtils;
@@ -28,11 +30,17 @@ public class AccountController {
 
     final UserService userService;
     final RedisService redisService;
+    final JWTService jwtService;
+    final GlobalParams globalParams;
 
     public AccountController(UserService userService,
-                             RedisService redisService) {
+                             RedisService redisService,
+                             JWTService jwtService,
+                             GlobalParams globalParams) {
         this.userService = userService;
         this.redisService = redisService;
+        this.jwtService = jwtService;
+        this.globalParams = globalParams;
     }
 
     /**
@@ -51,7 +59,8 @@ public class AccountController {
         accountToken.setAccount(account);
         accountToken.setPassword(password);
         // 随机生成uuid，作为token的id
-        accountToken.setTokenId(IdUtil.randomUUID());
+        String tokenId = IdUtil.getSnowflake().nextIdStr();
+        accountToken.setTokenId(tokenId);
         accountToken.setIssuedAt(System.currentTimeMillis());
         accountToken.setExpiresAt(DateUtil.offsetMinute(new Date(), 3).getTime());
         accountToken.setRemember(true);
@@ -59,9 +68,10 @@ public class AccountController {
         accountToken.setIp(request.getRemoteAddr());
 
         //缓存accountToken
-        redisService.set("token:" + accountToken.getAccountId(), accountToken,180);
+        redisService.set("token:" + accountToken.getAccountId(), accountToken,globalParams.getExpire());
 
-        String jwtToken = JWTUtils.createToken(accountToken.getAccountId().toString());
+
+        String jwtToken = jwtService.createToken(accountToken.getAccountId().toString(),tokenId);
         response.addHeader("jwtToken",jwtToken);
         return CommonResult.success("login successful");
     }

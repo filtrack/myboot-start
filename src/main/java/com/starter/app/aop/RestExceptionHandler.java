@@ -1,5 +1,7 @@
 package com.starter.app.aop;
 
+import com.auth0.jwt.exceptions.JWTDecodeException;
+import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.starter.app.result.CommonResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -35,6 +37,17 @@ public class RestExceptionHandler {
     @ExceptionHandler(value = { IllegalArgumentException.class,IllegalStateException.class})
     public CommonResult<String> handleHttpMessageNotReadableException(Exception e) {
         log.error("异常信息:",e);
+        return CommonResult.error(CommonResult.ResponseCode.ERROR_CUS.getCode(),e.getMessage());
+    }
+
+    @ExceptionHandler(value = {JWTDecodeException.class, SignatureVerificationException.class})
+    public CommonResult<String> handleJwtException(Exception e) {
+        log.error("jwt异常信息:",e);
+        if(e instanceof JWTDecodeException){
+            return CommonResult.error(CommonResult.ResponseCode.ERROR_CUS.getCode(),"JWT解码异常");
+        }else if(e instanceof SignatureVerificationException){
+            return CommonResult.error(CommonResult.ResponseCode.ERROR_CUS.getCode(),"签名验证未通过");
+        }
         return CommonResult.error(CommonResult.ResponseCode.ERROR_CUS.getCode(),e.getMessage());
     }
 

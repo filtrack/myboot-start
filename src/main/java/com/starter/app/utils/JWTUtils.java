@@ -1,59 +1,53 @@
 package com.starter.app.utils;
 
-import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.IdUtil;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.exceptions.JWTDecodeException;
-import com.auth0.jwt.exceptions.SignatureVerificationException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import lombok.SneakyThrows;
+import com.starter.app.config.GlobalParams;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
+@Component
 public class JWTUtils {
+
+    @Autowired
+    static
+    GlobalParams globalParams;
 
     private static String secret = "myboot-starter";
 
-    public static String createToken(String payload ){
+    public static String createToken(String payload, String tokenId){
+        System.out.println(globalParams.getSecret());
         Algorithm algorithm = Algorithm.HMAC256(secret);
         JWTCreator.Builder builder = JWT.create();
         builder.withNotBefore(new Date());
-//        builder.withJWTId(IdUtil.getSnowflake().nextIdStr());
         builder.withClaim("payload",payload);
+        builder.withJWTId(tokenId);
         return builder.sign(algorithm);
     }
 
-    @SneakyThrows
-    public static Map<String,Claim> verifyToken(String jwtToken){
+    public static Map<String,Claim> verifyToken(String jwtToken)throws JWTVerificationException{
         Algorithm algorithm = Algorithm.HMAC256(secret);
         JWTVerifier jwtVerifier = JWT.require(algorithm).build();
-        try {
-            DecodedJWT decodedJWT = jwtVerifier.verify(jwtToken);
-            return decodedJWT.getClaims();
-        }catch (JWTDecodeException e){
-            log.error("JWT解码异常");
-            throw new Exception(e);
-        }catch (SignatureVerificationException e){
-            log.error("签名验证异常");
-            throw new Exception(e);
-        }catch (Exception e){
-            log.error("校验令牌失败");
-            throw new Exception(e);
-        }
+        DecodedJWT decodedJWT = jwtVerifier.verify(jwtToken);
+        return decodedJWT.getClaims();
     }
 
     public static void main(String[] args) {
         Map<String,Object> claimMap = new HashMap<>();
         String userId = "1001";
-        String token = createToken(userId);
+        String token = createToken(userId, IdUtil.getSnowflake().nextIdStr());
         log.info("token:{}",token);
         Map<String,Claim> resultMap = verifyToken(token);
         resultMap.forEach((k,v)->{
