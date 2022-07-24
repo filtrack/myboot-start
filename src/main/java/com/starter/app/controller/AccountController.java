@@ -3,6 +3,7 @@ package com.starter.app.controller;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.IdUtil;
 import com.starter.app.annotation.Log;
+import com.starter.app.annotation.RateLimiter;
 import com.starter.app.config.GlobalParams;
 import com.starter.app.dto.AccountToken;
 import com.starter.app.dto.PageVo;
@@ -51,6 +52,7 @@ public class AccountController {
      * @return CommonResult
      */
     @Log("账户登陆")
+    @RateLimiter(time = 5,count = 3,limitType = RateLimiter.LimitType.IP)
     @PostMapping("/login")
     public Object login(HttpServletRequest request, HttpServletResponse response, String account, String password) {
         AccountToken accountToken = new AccountToken();
