@@ -1,4 +1,4 @@
-package com.starter.app.dto;
+package com.starter.app.ext;
 
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

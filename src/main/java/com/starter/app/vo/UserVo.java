@@ -1,22 +1,19 @@
-package com.starter.app.dto;
+package com.starter.app.vo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.starter.app.dto.ReqPage;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import java.io.Serializable;
 
-/**
- * (person)实体类
- */
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString(callSuper = true)
-public class LoginDto extends ReqPage implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class UserVo extends ReqPage{
 
-    private String id;
+    private Long id;
 
     /**
      * 登录名
@@ -53,11 +50,5 @@ public class LoginDto extends ReqPage implements Serializable {
      * 阅读量
      */
     private Integer sex;
-
-    /**
-     * 用户登录token
-     */
-    private String token;
-
 
 }

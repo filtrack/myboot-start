@@ -8,10 +8,9 @@
 <mapper namespace="com.starter.app.mapper.LaunageMapper">
 
     <resultMap id="BaseResultMap" type="com.starter.app.entity.Launage">
-            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="name" column="name" jdbcType="VARCHAR"/>
-            <result property="desc" column="desc" jdbcType="VARCHAR"/>
-            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="descs" column="descs" jdbcType="VARCHAR"/>
             <result property="deleteFlag" column="delete_flag" jdbcType="INTEGER"/>
             <result property="version" column="version" jdbcType="INTEGER"/>
             <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
@@ -19,8 +18,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,name,desc,
-        status,delete_flag,version,
+        id,name,descs,delete_flag,version,
         create_time,update_time
     </sql>
 </mapper>

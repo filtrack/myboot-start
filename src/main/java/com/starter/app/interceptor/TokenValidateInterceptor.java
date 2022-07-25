@@ -3,8 +3,7 @@ package com.starter.app.interceptor;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.Claim;
 import com.starter.app.config.GlobalConst;
-import com.starter.app.dto.LoginDto;
-import com.starter.app.dto.UserDto;
+import com.starter.app.vo.LoginVo;
 import com.starter.app.service.JWTService;
 import com.starter.app.service.RedisService;
 import lombok.SneakyThrows;
@@ -45,12 +44,12 @@ public class TokenValidateInterceptor extends HandlerInterceptorAdapter {
         Map<String, Claim> claimMap =  jwtService.verifyToken(jwtToken);
         String uId = claimMap.get("payload").asString();
         String tokenKey = "token:" + uId;
-        LoginDto loginDto = (LoginDto) redisService.get(tokenKey);
+        LoginVo loginVo = (LoginVo) redisService.get(tokenKey);
 
-        if (loginDto != null){
+        if (loginVo != null){
             //续约
-            if(loginDto.getToken().equals(jwtToken) && uId.equals(loginDto.getId())){
-                redisService.set("token:" + uId, loginDto,globalParams.getExpire());
+            if(loginVo.getToken().equals(jwtToken) && Long.parseLong(uId)==loginVo.getId()){
+                redisService.set("token:" + uId, loginVo,globalParams.getExpire());
                 return true;
             }else{
                 throw new JWTVerificationException("token验证失效，请重新获取token");

@@ -1,18 +1,16 @@
-package com.starter.app.entity;
+package com.starter.app.vo;
 
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.starter.app.dto.ReqPage;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.io.Serializable;
-
-@TableName(value ="t_aricle")
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 @Data
-public class Aricle extends BaseEntity {
-
+@NoArgsConstructor
+public class AricleVo extends ReqPage {
 
     /**
      * 语言id
@@ -59,4 +57,6 @@ public class Aricle extends BaseEntity {
      * 0:暂存 1:发布
      */
     private Integer status;
+
+
 }

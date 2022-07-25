@@ -4,19 +4,18 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.Date;
 
 
 @TableName(value ="t_user")
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 @Data
-public class User implements Serializable {
-    /**
-     * 
-     */
-    @TableId
-    private String id;
+public class User extends BaseEntity {
 
     /**
      * 登录名
@@ -53,26 +52,4 @@ public class User implements Serializable {
      */
     private Integer sex;
 
-    /**
-     * 0:未删除 1:逻辑删除
-     */
-    private Integer deleteFlag;
-
-    /**
-     * 乐观锁
-     */
-    private Integer version;
-
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-
-    /**
-     * 最后更新时间
-     */
-    private Date updateTime;
-
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
 }

@@ -1,4 +1,4 @@
-package com.starter.app.dto;
+package com.starter.app.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

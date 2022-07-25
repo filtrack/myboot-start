@@ -1,22 +1,15 @@
-package com.starter.app.entity;
+package com.starter.app.dto;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-import java.io.Serializable;
-import java.util.Date;
-
-
-@TableName(value ="t_topic")
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 @Data
-public class Topic extends BaseEntity {
+public class TopicDto extends ReqPage{
 
+    private Long id;
 
     /**
      * 语言ID
@@ -38,4 +31,10 @@ public class Topic extends BaseEntity {
      */
     private String subTitle;
 
+    public TopicDto(String lid, String uid, String title, String subTitle) {
+        this.lId = lid;
+        this.uId = uid;
+        this.title = title;
+        this.subTitle = subTitle;
+    }
 }

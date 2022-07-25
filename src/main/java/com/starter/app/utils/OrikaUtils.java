@@ -1,7 +1,7 @@
 package com.starter.app.utils;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.starter.app.dto.PageVo;
+import com.starter.app.vo.PageVo;
 import lombok.extern.slf4j.Slf4j;
 import ma.glasnost.orika.MapperFacade;
 import ma.glasnost.orika.MapperFactory;
