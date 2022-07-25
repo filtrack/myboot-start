@@ -57,7 +57,7 @@ public class AricleServiceImpl extends ServiceImpl<AricleMapper, Aricle> impleme
         QueryWrapper<Aricle> queryWrapper = new QueryWrapper<>();
         queryWrapper.like(ObjectUtil.isNotEmpty(dto.getTitle()),"title",dto.getTitle());
         queryWrapper.like(ObjectUtil.isNotEmpty(dto.getKeyword()),"keyword",dto.getKeyword());
-        queryWrapper.eq(ObjectUtil.isNotEmpty(dto.getStatus()),"status",1);
+        queryWrapper.eq("status",1);
         Page<Aricle> page = MyPage.of(dto.getPage(),dto.getSize(),orderMap);
         aricleMapper.selectPage(page,queryWrapper);
 
