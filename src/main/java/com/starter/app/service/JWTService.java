@@ -5,7 +5,7 @@ import com.auth0.jwt.interfaces.Claim;
 import java.util.Map;
 
 public interface JWTService {
-    String createToken(String payload, String tokenId);
+    String createToken(String payload);
     Map<String, Claim> verifyToken(String jwtToken);
 
 }

@@ -1,17 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.starter.app.mapper.UserMapper">
-    <sql id="tableName">
-        user
-    </sql>
 
-    <sql id="baseColumn">
-        id,name,age,email
-    </sql>
+    <resultMap id="BaseResultMap" type="com.starter.app.entity.User">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="username" column="username" jdbcType="VARCHAR"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
+            <result property="nickname" column="nickname" jdbcType="VARCHAR"/>
+            <result property="photo" column="photo" jdbcType="VARCHAR"/>
+            <result property="intro" column="intro" jdbcType="VARCHAR"/>
+            <result property="birthday" column="birthday" jdbcType="VARCHAR"/>
+            <result property="sex" column="sex" jdbcType="INTEGER"/>
+            <result property="deleteFlag" column="delete_flag" jdbcType="INTEGER"/>
+            <result property="version" column="version" jdbcType="INTEGER"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
 
+
+    <sql id="Base_Column_List">
+        id,username,password,
+        nickname,photo,intro,
+        birthday,sex,delete_flag,
+        version,create_time,update_time
+    </sql>
 
     <select id="findByUserName" resultType="com.starter.app.entity.User">
-        select * from user where name = #{name}
+        select <include refid="Base_Column_List" /> from t_user where username = #{username}
     </select>
+
 
 </mapper>

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Configuration
 @Component
 @Data
-public class GlobalParams {
+public class GlobalConst {
 
     @Value("${jwt.secret}")
     private String secret;

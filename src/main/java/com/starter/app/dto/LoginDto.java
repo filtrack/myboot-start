@@ -13,7 +13,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString(callSuper = true)
-public class UserDto extends ReqPage implements Serializable {
+public class LoginDto extends ReqPage implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String id;
@@ -53,5 +53,11 @@ public class UserDto extends ReqPage implements Serializable {
      * 阅读量
      */
     private Integer sex;
+
+    /**
+     * 用户登录token
+     */
+    private String token;
+
 
 }

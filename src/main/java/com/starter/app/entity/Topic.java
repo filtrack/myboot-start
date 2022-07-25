@@ -9,9 +9,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-@TableName(value ="t_user")
+@TableName(value ="t_topic")
 @Data
-public class User implements Serializable {
+public class Topic implements Serializable {
     /**
      * 
      */
@@ -19,39 +19,24 @@ public class User implements Serializable {
     private String id;
 
     /**
-     * 登录名
+     * 
      */
-    private String username;
+    private String lId;
 
     /**
-     * 密码
+     * 发布者id
      */
-    private String password;
+    private String uId;
 
     /**
-     * 昵称
+     * 专题名称
      */
-    private String nickname;
+    private String name;
 
     /**
-     * 头像
+     * 专题描述
      */
-    private String photo;
-
-    /**
-     * 签名介绍
-     */
-    private String intro;
-
-    /**
-     * 生日(年月日) yyyy-MM-dd
-     */
-    private String birthday;
-
-    /**
-     * 阅读量
-     */
-    private Integer sex;
+    private String desc;
 
     /**
      * 0:未删除 1:逻辑删除

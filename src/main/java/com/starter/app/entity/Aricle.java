@@ -8,10 +8,9 @@ import lombok.Data;
 import java.io.Serializable;
 import java.util.Date;
 
-
-@TableName(value ="t_user")
+@TableName(value ="t_aricle")
 @Data
-public class User implements Serializable {
+public class Aricle implements Serializable {
     /**
      * 
      */
@@ -19,39 +18,44 @@ public class User implements Serializable {
     private String id;
 
     /**
-     * 登录名
+     * 语言id
      */
-    private String username;
+    private String lId;
 
     /**
-     * 密码
+     * 专题id
      */
-    private String password;
+    private String tId;
 
     /**
-     * 昵称
+     * 发布者id
      */
-    private String nickname;
+    private String uId;
 
     /**
-     * 头像
+     * 文章标题
      */
-    private String photo;
+    private String title;
 
     /**
-     * 签名介绍
+     * 文章副标题
      */
-    private String intro;
+    private String subTitle;
 
     /**
-     * 生日(年月日) yyyy-MM-dd
+     * 文章标题
      */
-    private String birthday;
+    private String content;
+
+    /**
+     * 关键字
+     */
+    private String keyword;
 
     /**
      * 阅读量
      */
-    private Integer sex;
+    private Integer readCount;
 
     /**
      * 0:未删除 1:逻辑删除

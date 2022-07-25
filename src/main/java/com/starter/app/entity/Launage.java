@@ -8,10 +8,9 @@ import lombok.Data;
 import java.io.Serializable;
 import java.util.Date;
 
-
-@TableName(value ="t_user")
+@TableName(value ="t_launage")
 @Data
-public class User implements Serializable {
+public class Launage implements Serializable {
     /**
      * 
      */
@@ -19,39 +18,19 @@ public class User implements Serializable {
     private String id;
 
     /**
-     * 登录名
+     * 名称
      */
-    private String username;
+    private String name;
 
     /**
-     * 密码
+     * 描述
      */
-    private String password;
+    private String desc;
 
     /**
-     * 昵称
+     * 0:暂存 1:发布
      */
-    private String nickname;
-
-    /**
-     * 头像
-     */
-    private String photo;
-
-    /**
-     * 签名介绍
-     */
-    private String intro;
-
-    /**
-     * 生日(年月日) yyyy-MM-dd
-     */
-    private String birthday;
-
-    /**
-     * 阅读量
-     */
-    private Integer sex;
+    private Integer status;
 
     /**
      * 0:未删除 1:逻辑删除

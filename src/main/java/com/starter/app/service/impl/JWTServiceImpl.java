@@ -6,9 +6,8 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.starter.app.config.GlobalParams;
+import com.starter.app.config.GlobalConst;
 import com.starter.app.service.JWTService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -17,20 +16,19 @@ import java.util.Map;
 @Service
 public class JWTServiceImpl implements JWTService {
 
-    final GlobalParams globalParams;
+    final GlobalConst globalParams;
 
-    public JWTServiceImpl(GlobalParams globalParams) {
+    public JWTServiceImpl(GlobalConst globalParams) {
         this.globalParams = globalParams;
     }
 
     @Override
-    public String createToken(String payload, String tokenId) {
+    public String createToken(String payload) {
         System.out.println(globalParams.getSecret());
         Algorithm algorithm = Algorithm.HMAC256(globalParams.getSecret());
         JWTCreator.Builder builder = JWT.create();
         builder.withNotBefore(new Date());
         builder.withClaim("payload",payload);
-        builder.withJWTId(tokenId);
         return builder.sign(algorithm);
     }
 
