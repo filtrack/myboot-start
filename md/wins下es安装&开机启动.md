@@ -9,7 +9,7 @@
 
 ##### 2.解压下载的Elasticsearch,进入elasticsearch-8.3.2\bin目录下
 ##### 3.服务安装&卸载
-安装命令： c./elasticsearch-service.bat install`
+安装命令： `./elasticsearch-service.bat installc`
 或: `./elasticsearch-service.bat install 指定服务名称`
 
 ![img.png](img.png)
