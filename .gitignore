@@ -8,3 +8,8 @@
 /myboot-starter/
 /node_modules/
 /logs/
+/code_gen/.mvn/wrapper/maven-wrapper.properties
+/code_gen/.mvn/wrapper/maven-wrapper.jar
+/code_gen/mvnw
+/code_gen/mvnw.cmd
+/code_gen/.mvn/wrapper/maven-wrapper.jar

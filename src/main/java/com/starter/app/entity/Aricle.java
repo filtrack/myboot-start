@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-import java.io.Serializable;
 
 @TableName(value ="t_aricle")
 @EqualsAndHashCode(callSuper = true)
