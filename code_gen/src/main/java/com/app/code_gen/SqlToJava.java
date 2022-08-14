@@ -35,7 +35,7 @@ public class SqlToJava {
 
 
 
-    private static Connection con;
+    private static Connection connection;
     private static Statement statement;
     private static String tableSchema;
 
@@ -48,14 +48,7 @@ public class SqlToJava {
 
 
     //类注解 占位符(表名):{}
-    private static final String[] TAB_COMS = {
-            "@Data"
-            , "@TableName(\"{}\")"};
-
-
-
-
-
+    private static final String[] TAB_COMS = {"@Data","@TableName(\"{}\")"};
 
     //字段注解 占位符(字段名):{}
     private static final String[] COMMENTS = {"@TableField(\"{}\")"};
@@ -115,8 +108,8 @@ public class SqlToJava {
 
     private static void connect() throws Exception {
         Class.forName(DRIVER);
-        con = DriverManager.getConnection(URL, NAME, PASS);
-        statement = con.createStatement();
+        connection = DriverManager.getConnection(URL, NAME, PASS);
+        statement = connection.createStatement();
         tableSchema = URL.split("\\?")[0].substring(URL.split("\\?")[0].lastIndexOf("/") + 1);
     }
 

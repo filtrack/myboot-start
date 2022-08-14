@@ -5,6 +5,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>code_gen</module>
+        <module>code_generation</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -125,6 +126,7 @@
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>
