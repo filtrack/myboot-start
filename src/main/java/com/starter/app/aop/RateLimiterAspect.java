@@ -31,9 +31,9 @@ public class RateLimiterAspect {
 
     @Before("@annotation(rateLimiter)")
     public void doBefore(JoinPoint point, RateLimiter rateLimiter) throws Throwable {
-        String key = rateLimiter.key();
-        int time = rateLimiter.time();
-        int count = rateLimiter.count();
+            String key = rateLimiter.key();
+            int time = rateLimiter.time();
+            int count = rateLimiter.count();
 
         String combineKey = getCombineKey(rateLimiter, point);
         List<Object> keys = Collections.singletonList(combineKey);

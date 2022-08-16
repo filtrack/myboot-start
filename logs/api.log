@@ -1,0 +1,8 @@
+2022-08-15 16:32:30 1559095676759232512 INFO  com.starter.app.aop.LogAccessAspect:48 - [账户登陆] ip:127.0.0.1,请求地址[http://127.0.0.1/api/user/login]
+2022-08-15 16:32:43 1559095731545231360 INFO  com.starter.app.aop.LogAccessAspect:48 - [语言列表] ip:127.0.0.1,请求地址[http://127.0.0.1/api/lan/list]
+2022-08-15 16:32:44 1559095736599367680 INFO  com.starter.app.aop.LogAccessAspect:48 - [语言列表] ip:127.0.0.1,请求地址[http://127.0.0.1/api/lan/list]
+2022-08-15 16:32:45 1559095740353269760 INFO  com.starter.app.aop.LogAccessAspect:48 - [语言列表] ip:127.0.0.1,请求地址[http://127.0.0.1/api/lan/list]
+2022-08-15 16:34:43 1559096234048053248 INFO  com.starter.app.aop.LogAccessAspect:48 - [语言列表] ip:127.0.0.1,请求地址[http://127.0.0.1/api/lan/list]
+2022-08-15 16:34:45 1559096242474409984 INFO  com.starter.app.aop.LogAccessAspect:48 - [语言列表] ip:127.0.0.1,请求地址[http://127.0.0.1/api/lan/list]
+2022-08-15 16:36:04 1559096572675182592 INFO  com.starter.app.aop.LogAccessAspect:48 - [账户登陆] ip:127.0.0.1,请求地址[http://127.0.0.1/api/user/login]
+2022-08-15 16:36:12 1559096609182404608 INFO  com.starter.app.aop.LogAccessAspect:48 - [语言列表] ip:127.0.0.1,请求地址[http://127.0.0.1/api/lan/list]

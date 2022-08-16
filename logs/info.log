@@ -1,0 +1,10 @@
+2022-08-16 18:24:56  INFO  com.starter.app.BootApp:55 - Starting BootApp using Java 1.8.0_151 on hjw with PID 8004 (E:\coding\myboot-starter\target\classes started by Admin in E:\coding\myboot-starter)
+2022-08-16 18:24:56  INFO  com.starter.app.BootApp:640 - The following 1 profile is active: "dev"
+2022-08-16 18:24:57  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-08-16 18:24:57  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-08-16 18:24:58  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2022-08-16 18:24:58  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 80 (http)
+2022-08-16 18:24:59  INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:292 - Root WebApplicationContext: initialization completed in 1953 ms
+2022-08-16 18:24:59  INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:478 - Autowired annotation is not supported on static fields: static com.starter.app.config.GlobalConst com.starter.app.utils.JWTUtils.globalParams
+2022-08-16 18:25:00  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 80 (http) with context path '/api'
+2022-08-16 18:25:00  INFO  com.starter.app.BootApp:61 - Started BootApp in 4.512 seconds (JVM running for 5.67)
