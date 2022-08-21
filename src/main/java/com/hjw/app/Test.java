@@ -1,4 +1,6 @@
-package com.code.generation;
+package com.hjw.app;
+
+import com.code.generation.AutoCode;
 
 public class Test {
 

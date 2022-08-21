@@ -1,15 +1,13 @@
 package com.code.generation;
 
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.ObjectUtils;
 
 import java.io.File;
 import java.sql.*;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @Slf4j
 public class AutoCode {
@@ -29,7 +27,7 @@ public class AutoCode {
     //输出实体类的包
     private static  String PKG = "cn.hjw.app";
     private static  String PKG_ENTITY = "entity";
-    private static  String PKG_MAPPER = "mapper";
+    private static  String PKG_MAPPER = "mapper2";
     private static  String PKG_SERVICE= "service";
     private static  String PKG_SERVICEIMPL = "service.impl";
 
@@ -37,14 +35,18 @@ public class AutoCode {
     private static  String[] TABS = {};
     //表前缀[为空时输出库中所有表] (生成实体类类名时会去除)
     private static  String[] TAB_PRE = {"t_"};
-    private static String SHOW_COLUMN_INFO ="select column_name,column_comment,data_type,column_key from information_schema.columns where table_name = '${tableName}'";
+    private static String SHOW_COLUMN_INFO ="select column_name,column_comment,data_type,column_key from information_schema.columns where table_name = '${tableName}' ";
     private final String REPLACE_TABLE_NAME = "${tableName}";
 
 
     private final String SOURCE_PATH = new File("").getAbsolutePath() + "/src/main/java/";
-    private static final String templatePath = AutoCode.class.getClassLoader().getResource("templates").getPath();
+    private final String MAPPER_PATH = new File("").getAbsolutePath() + "/src/main/resources/";
+    private static  String templatePath = null;
     private static FreemarkerUtil mFreemarker = FreemarkerUtil.getInstance();
 
+    static {
+        templatePath = AutoCode.class.getClassLoader().getResource("templates").getPath();
+    }
 
     public static AutoCode init() {
         return new AutoCode();
@@ -79,15 +81,11 @@ public class AutoCode {
             TableInfo tableInfo = tableInfo(table);
 
 
-
             generateEntity(tableInfo);
             generateMapper(tableInfo);
             generateService(tableInfo);
             generateServiceImpl(tableInfo);
-//            generateEntity(modelMap,"entity",PACKAGE,tableInfo.getUpClassName());
-//            generateMapper(modelMap,"entity",PACKAGE,tableInfo.getUpClassName());
-//            generateService(modelMap,"entity",PACKAGE,tableInfo.getUpClassName());
-//            generateServiceImpl(modelMap,"entity",PACKAGE,tableInfo.getUpClassName());
+            generateMapperXML(tableInfo);
 
         }
 
@@ -155,6 +153,19 @@ public class AutoCode {
         mFreemarker.tempWriter(templatePath,"serviceImpl.ftl", packageName, fileName+".java", map);
     }
 
+    private void generateMapperXML(TableInfo tableInfo) throws Exception {
+        String packageName = MAPPER_PATH+"/"+PKG_MAPPER;
+        Map map = new HashMap();
+        map.put("table",tableInfo);
+        map.put("mapperPackage", PKG +"."+PKG_MAPPER);
+        map.put("entityPackage", PKG +"."+PKG_ENTITY);
+        String fileName = tableInfo.getUpClassName()+"Mapper";
+        String entityMapper = tableInfo.getUpClassName()+"Mapper";
+        map.put("entityMapper",entityMapper);
+        map.put("entityName",tableInfo.getUpClassName());
+        mFreemarker.tempWriter(templatePath,"mapper_xml.ftl", packageName, fileName+".xml", map);
+    }
+
     private  void connect() throws Exception {
         Class.forName(DRIVER);
         connection = DriverManager.getConnection(URL, NAME, PASS);
@@ -171,7 +182,7 @@ public class AutoCode {
      */
     private TableInfo tableInfo(String tableName) throws Exception {
 
-        List<ColumnInfo> columnInfoList = new ArrayList<>();
+        LinkedList<ColumnInfo> columnInfoList = new LinkedList<>();
         PreparedStatement columnPs = connection.prepareStatement(SHOW_COLUMN_INFO.replace(REPLACE_TABLE_NAME, tableName));
         ResultSet columnRs = columnPs.executeQuery();
         String primaryKey = "";
@@ -192,11 +203,6 @@ public class AutoCode {
             columnInfoList.add(columnInfo);
         }
 
-
-        String sql = "SELECT * FROM " + tableName + " LIMIT 1";
-        ResultSet rs = statement.executeQuery(sql);
-
-        ResultSetMetaData rsmd = rs.getMetaData();
         String lowerClassName = normTableName(tableName);
         String upClassName = StrUtils.upStr(lowerClassName);
         //获取该表注释

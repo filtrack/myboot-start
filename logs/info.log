@@ -1,10 +1,56 @@
-2022-08-16 18:24:56  INFO  com.starter.app.BootApp:55 - Starting BootApp using Java 1.8.0_151 on hjw with PID 8004 (E:\coding\myboot-starter\target\classes started by Admin in E:\coding\myboot-starter)
-2022-08-16 18:24:56  INFO  com.starter.app.BootApp:640 - The following 1 profile is active: "dev"
-2022-08-16 18:24:57  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode
-2022-08-16 18:24:57  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2022-08-16 18:24:58  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
-2022-08-16 18:24:58  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 80 (http)
-2022-08-16 18:24:59  INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:292 - Root WebApplicationContext: initialization completed in 1953 ms
-2022-08-16 18:24:59  INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:478 - Autowired annotation is not supported on static fields: static com.starter.app.config.GlobalConst com.starter.app.utils.JWTUtils.globalParams
-2022-08-16 18:25:00  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 80 (http) with context path '/api'
-2022-08-16 18:25:00  INFO  com.starter.app.BootApp:61 - Started BootApp in 4.512 seconds (JVM running for 5.67)
+2022-08-21 22:30:39  INFO  hjw.app.mybatis.MybatisApplication:55 - Starting MybatisApplication using Java 1.8.0_271 on allindeMBP with PID 9102 (/Users/allin/Documents/hjw_code/coding/myboot-start/mybatis/target/classes started by allin in /Users/allin/Documents/hjw_code/coding/myboot-start)
+2022-08-21 22:30:39  INFO  hjw.app.mybatis.MybatisApplication:640 - The following 1 profile is active: "dev"
+2022-08-21 22:30:40  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-08-21 22:30:40  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-08-21 22:30:40  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2022-08-21 22:30:40  INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener:136 - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-08-21 22:32:06  INFO  hjw.app.mybatis.MybatisApplication:55 - Starting MybatisApplication using Java 1.8.0_271 on allindeMBP with PID 9152 (/Users/allin/Documents/hjw_code/coding/myboot-start/mybatis/target/classes started by allin in /Users/allin/Documents/hjw_code/coding/myboot-start)
+2022-08-21 22:32:06  INFO  hjw.app.mybatis.MybatisApplication:640 - The following 1 profile is active: "dev"
+2022-08-21 22:32:07  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-08-21 22:32:07  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-08-21 22:32:07  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2022-08-21 22:32:07  INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener:136 - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-08-21 22:33:03  INFO  hjw.app.mybatis.MybatisApplication:55 - Starting MybatisApplication using Java 1.8.0_271 on allindeMBP with PID 9181 (/Users/allin/Documents/hjw_code/coding/myboot-start/mybatis/target/classes started by allin in /Users/allin/Documents/hjw_code/coding/myboot-start)
+2022-08-21 22:33:03  INFO  hjw.app.mybatis.MybatisApplication:640 - The following 1 profile is active: "dev"
+2022-08-21 22:33:04  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-08-21 22:33:04  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-08-21 22:33:04  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2022-08-21 22:33:05  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 80 (http)
+2022-08-21 22:33:05  INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:292 - Root WebApplicationContext: initialization completed in 1956 ms
+2022-08-21 22:33:06  INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener:136 - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-08-21 22:33:53  INFO  hjw.app.mybatis.MybatisApplication:55 - Starting MybatisApplication using Java 1.8.0_271 on allindeMBP with PID 9253 (/Users/allin/Documents/hjw_code/coding/myboot-start/mybatis/target/classes started by allin in /Users/allin/Documents/hjw_code/coding/myboot-start)
+2022-08-21 22:33:53  INFO  hjw.app.mybatis.MybatisApplication:640 - The following 1 profile is active: "dev"
+2022-08-21 22:33:54  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-08-21 22:33:54  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-08-21 22:33:54  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2022-08-21 22:33:55  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 80 (http)
+2022-08-21 22:33:55  INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:292 - Root WebApplicationContext: initialization completed in 1749 ms
+2022-08-21 22:33:56  INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:478 - Autowired annotation is not supported on static fields: static hjw.app.mybatis.config.GlobalConst hjw.app.mybatis.utils.JWTUtils.globalParams
+2022-08-21 22:33:57  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 80 (http) with context path '/api'
+2022-08-21 22:33:57  INFO  hjw.app.mybatis.MybatisApplication:61 - Started MybatisApplication in 4.132 seconds (JVM running for 4.917)
+2022-08-21 22:34:09  INFO  org.springframework.web.servlet.DispatcherServlet:525 - Initializing Servlet 'dispatcherServlet'
+2022-08-21 22:34:09  INFO  org.springframework.web.servlet.DispatcherServlet:547 - Completed initialization in 1 ms
+2022-08-21 22:34:09 1561361015784820736 INFO  hjw.app.mybatis.aop.LogWebAspect:44 - 请求类和方法:hjw.app.mybatis.controller.UserController#login
+2022-08-21 22:34:09 1561361015784820736 INFO  hjw.app.mybatis.aop.LogWebAspect:45 - 请求参数信息:username:hjw password:123456 
+2022-08-21 22:34:10 1561361015784820736 INFO  com.zaxxer.hikari.HikariDataSource:110 - DateSourceHikariCP - Starting...
+2022-08-21 22:34:10 1561361015784820736 INFO  com.zaxxer.hikari.HikariDataSource:123 - DateSourceHikariCP - Start completed.
+2022-08-21 22:34:10 1561361015784820736 INFO  hjw.app.mybatis.aop.LogWebAspect:56 - 请求耗时:[1351毫秒],响应结果:CommonResult(code=200, message=login successful, data=LoginVo(super=ReqPage(page=1, Size=10), id=1551502630400090112, username=hjw, password=e10adc3949ba59abbe56e057f20f883e, nickname=zijing, photo=null, intro=我是一个比较懒的人~~, birthday=1989-11-22, sex=0, token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE2NjEwOTI0NTAsInBheWxvYWQiOiIxNTUxNTAyNjMwNDAwMDkwMTEyIn0.FiVcbop_XDGFSDKHUMtnlgRAyuh5G9OoPCSUz3m-RT0), time=1661092450907) 
+
+2022-08-21 22:52:58  INFO  com.zaxxer.hikari.HikariDataSource:350 - DateSourceHikariCP - Shutdown initiated...
+2022-08-21 22:52:58  INFO  com.zaxxer.hikari.HikariDataSource:352 - DateSourceHikariCP - Shutdown completed.
+2022-08-21 22:53:06  INFO  hjw.app.mybatis.MybatisApplication:55 - Starting MybatisApplication using Java 1.8.0_271 on allindeMBP with PID 9702 (/Users/allin/Documents/hjw_code/coding/myboot-start/mybatis/target/classes started by allin in /Users/allin/Documents/hjw_code/coding/myboot-start)
+2022-08-21 22:53:06  INFO  hjw.app.mybatis.MybatisApplication:640 - The following 1 profile is active: "dev"
+2022-08-21 22:53:07  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-08-21 22:53:07  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-08-21 22:53:07  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+2022-08-21 22:53:08  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 80 (http)
+2022-08-21 22:53:08  INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:292 - Root WebApplicationContext: initialization completed in 1948 ms
+2022-08-21 22:53:09  INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:478 - Autowired annotation is not supported on static fields: static hjw.app.mybatis.config.GlobalConst hjw.app.mybatis.utils.JWTUtils.globalParams
+2022-08-21 22:53:10  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 80 (http) with context path '/api'
+2022-08-21 22:53:10  INFO  hjw.app.mybatis.MybatisApplication:61 - Started MybatisApplication in 4.494 seconds (JVM running for 5.325)
