@@ -3,7 +3,7 @@ package com.starter.app.interceptor;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.Claim;
 import com.starter.app.config.GlobalConst;
-import com.starter.app.vo.LoginVo;
+import com.starter.app.vo.LoginVO;
 import com.starter.app.service.JWTService;
 import com.starter.app.service.RedisService;
 import lombok.SneakyThrows;
@@ -44,7 +44,7 @@ public class TokenValidateInterceptor extends HandlerInterceptorAdapter {
         Map<String, Claim> claimMap =  jwtService.verifyToken(jwtToken);
         String uId = claimMap.get("payload").asString();
         String tokenKey = "token:" + uId;
-        LoginVo loginVo = (LoginVo) redisService.get(tokenKey);
+        LoginVO loginVo = (LoginVO) redisService.get(tokenKey);
 
         if (loginVo != null){
             //续约

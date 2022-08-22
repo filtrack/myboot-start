@@ -3,14 +3,14 @@ package com.starter.app.controller;
 import com.starter.app.annotation.Log;
 import com.starter.app.annotation.RateLimiter;
 import com.starter.app.config.GlobalConst;
-import com.starter.app.vo.LoginVo;
-import com.starter.app.vo.PageVo;
-import com.starter.app.dto.UserDto;
+import com.starter.app.dto.UserDTO;
 import com.starter.app.result.CommonResult;
 import com.starter.app.service.JWTService;
 import com.starter.app.service.RedisService;
 import com.starter.app.service.UserService;
-import com.starter.app.vo.UserVo;
+import com.starter.app.vo.LoginVO;
+import com.starter.app.vo.PageVO;
+import com.starter.app.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
@@ -50,7 +50,7 @@ public class UserController {
     @RateLimiter(time = 5,count = 3,limitType = RateLimiter.LimitType.IP)
     @PostMapping("/login")
     public Object login(@NotBlank String username, @NotBlank String password) {
-        LoginVo loginVo = userService.login(username,password);
+        LoginVO loginVo = userService.login(username,password);
         return CommonResult.success(loginVo,"login successful");
     }
 
@@ -62,8 +62,8 @@ public class UserController {
     @Log("用户列表")
     @RateLimiter(time = 5,count = 3,limitType = RateLimiter.LimitType.IP)
     @PostMapping("/list")
-    public Object users(UserDto userDto){
-        PageVo<UserVo> pageResult =  userService.queryPage(userDto);
+    public Object users(UserDTO userDto){
+        PageVO<UserVO> pageResult =  userService.queryPage(userDto);
         return CommonResult.success(pageResult);
     }
 
@@ -76,9 +76,9 @@ public class UserController {
     @RateLimiter(time = 5,count = 3,limitType = RateLimiter.LimitType.IP)
     @GetMapping("/{id}")
     public Object user(@PathVariable("id") Long id){
-        UserVo userVo = userService.findById(id);
-        Assert.notNull(userVo, "用户不存在！");
-        return CommonResult.success(userVo);
+        UserVO userVO = userService.findById(id);
+        Assert.notNull(userVO, "用户不存在！");
+        return CommonResult.success(userVO);
     }
 
 

@@ -10,7 +10,6 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <packaging>pom</packaging>
 
     <groupId>com.starter.app</groupId>
     <artifactId>myboot-start</artifactId>
@@ -102,17 +101,6 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.code.generation</groupId>
-            <artifactId>code-generation</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.5.3</version>
-        </dependency>
 
 
     </dependencies>
@@ -125,9 +113,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <modules>
-        <module>code-generation</module>
-    </modules>
 
 </project>

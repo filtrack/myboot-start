@@ -1,18 +1,18 @@
 package com.starter.app.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.starter.app.dto.AricleDto;
+import com.starter.app.dto.AricleDTO;
 import com.starter.app.entity.Aricle;
-import com.starter.app.vo.AricleVo;
-import com.starter.app.vo.PageVo;
+import com.starter.app.vo.AricleVO;
+import com.starter.app.vo.PageVO;
 
 public interface AricleService extends IService<Aricle> {
 
-    Boolean addAricle(AricleDto dto);
+    Boolean addAricle(AricleDTO dto);
 
-    Boolean publishAricle(AricleDto dto);
+    Boolean publishAricle(AricleDTO dto);
 
-    AricleVo findById(Long id);
+    AricleVO findById(Long id);
 
-    PageVo<AricleVo> queryPage(AricleDto dto);
+    PageVO<AricleVO> queryPage(AricleDTO dto);
 }

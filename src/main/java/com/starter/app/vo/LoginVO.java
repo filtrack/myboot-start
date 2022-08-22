@@ -1,17 +1,19 @@
 package com.starter.app.vo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.starter.app.dto.ReqPage;
+import com.starter.app.dto.ReqPageDTO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-import java.io.Serializable;
-
+/**
+ * (person)实体类
+ */
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString(callSuper = true)
-public class UserVo extends ReqPage{
+public class LoginVO extends ReqPageDTO {
+
 
     private Long id;
 
@@ -50,5 +52,11 @@ public class UserVo extends ReqPage{
      * 阅读量
      */
     private Integer sex;
+
+    /**
+     * 用户登录token
+     */
+    private String token;
+
 
 }

@@ -1,18 +1,18 @@
 package com.starter.app.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.starter.app.vo.LoginVo;
-import com.starter.app.vo.PageVo;
-import com.starter.app.dto.UserDto;
-import com.starter.app.vo.UserVo;
+import com.starter.app.vo.LoginVO;
+import com.starter.app.vo.PageVO;
+import com.starter.app.dto.UserDTO;
+import com.starter.app.vo.UserVO;
 
 public interface UserService extends IService<com.starter.app.entity.User> {
 
-    LoginVo login(String username, String password);
+    LoginVO login(String username, String password);
 
-    Boolean addUser(UserDto userDto);
+    Boolean addUser(UserDTO userDTO);
 
-    UserVo findById(Long id);
+    UserVO findById(Long id);
 
-    PageVo<UserVo> queryPage(UserDto userDto);
+    PageVO<UserVO> queryPage(UserDTO userDTO);
 }

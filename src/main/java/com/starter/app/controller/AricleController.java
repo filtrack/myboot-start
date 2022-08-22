@@ -2,15 +2,11 @@ package com.starter.app.controller;
 
 import com.starter.app.annotation.Log;
 import com.starter.app.annotation.RateLimiter;
-import com.starter.app.dto.AricleDto;
-import com.starter.app.dto.LaunageDto;
+import com.starter.app.dto.AricleDTO;
 import com.starter.app.result.CommonResult;
 import com.starter.app.service.AricleService;
-import com.starter.app.service.LaunageService;
-import com.starter.app.vo.AricleVo;
-import com.starter.app.vo.LaunageVo;
-import com.starter.app.vo.PageVo;
-import com.starter.app.vo.UserVo;
+import com.starter.app.vo.AricleVO;
+import com.starter.app.vo.PageVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
@@ -39,7 +35,7 @@ public class AricleController {
     @Log("保存文章")
     @RateLimiter(time = 5,count = 3,limitType = RateLimiter.LimitType.IP)
     @PostMapping("/add_aricle")
-    public Object addAricle(AricleDto dto) {
+    public Object addAricle(AricleDTO dto) {
         Boolean bool =  aricleService.addAricle(dto);
         return CommonResult.success(bool);
     }
@@ -53,7 +49,7 @@ public class AricleController {
     @RateLimiter(time = 5,count = 3,limitType = RateLimiter.LimitType.IP)
     @GetMapping("/{id}")
     public Object user(@PathVariable("id") Long id){
-        AricleVo aricleVo = aricleService.findById(id);
+        AricleVO aricleVo = aricleService.findById(id);
         Assert.notNull(aricleVo, "文章不存在！");
         return CommonResult.success(aricleVo);
     }
@@ -66,7 +62,7 @@ public class AricleController {
     @Log("发布文章")
     @RateLimiter(time = 5,count = 3,limitType = RateLimiter.LimitType.IP)
     @PostMapping("/publish_aricle")
-    public Object publishAricle(AricleDto dto) {
+    public Object publishAricle(AricleDTO dto) {
         Boolean bool =  aricleService.publishAricle(dto);
         return CommonResult.success(bool);
     }
@@ -81,8 +77,8 @@ public class AricleController {
     @Log("文章列表")
     @RateLimiter(time = 5,count = 3,limitType = RateLimiter.LimitType.IP)
     @PostMapping("/list")
-    public Object list(AricleDto dto) {
-        PageVo<AricleVo> pageResult =  aricleService.queryPage(dto);
+    public Object list(AricleDTO dto) {
+        PageVO<AricleVO> pageResult =  aricleService.queryPage(dto);
         return CommonResult.success(pageResult);
     }
 

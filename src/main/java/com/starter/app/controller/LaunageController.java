@@ -2,11 +2,11 @@ package com.starter.app.controller;
 
 import com.starter.app.annotation.Log;
 import com.starter.app.annotation.RateLimiter;
-import com.starter.app.dto.LaunageDto;
+import com.starter.app.dto.LaunageDTO;
 import com.starter.app.result.CommonResult;
 import com.starter.app.service.LaunageService;
-import com.starter.app.vo.LaunageVo;
-import com.starter.app.vo.PageVo;
+import com.starter.app.vo.LaunageVO;
+import com.starter.app.vo.PageVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,8 +34,8 @@ public class LaunageController {
     @Log("语言列表")
     @RateLimiter(time = 5,count = 3,limitType = RateLimiter.LimitType.IP)
     @PostMapping("/list")
-    public Object list(LaunageDto dto) {
-        PageVo<LaunageVo> pageResult =  launageService.queryPage(dto);
+    public Object list(LaunageDTO dto) {
+        PageVO<LaunageVO> pageResult =  launageService.queryPage(dto);
         return CommonResult.success(pageResult);
     }
 

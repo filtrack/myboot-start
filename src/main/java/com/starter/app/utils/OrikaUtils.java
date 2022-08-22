@@ -1,7 +1,7 @@
 package com.starter.app.utils;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.starter.app.vo.PageVo;
+import com.starter.app.vo.PageVO;
 import lombok.extern.slf4j.Slf4j;
 import ma.glasnost.orika.MapperFacade;
 import ma.glasnost.orika.MapperFactory;
@@ -108,9 +108,9 @@ public class OrikaUtils {
     }
 
 
-    public static synchronized <S, P> PageVo<P> convertPageVo(Page<S> page,Class<P> target) {
+    public static synchronized <S, P> PageVO<P> convertPageVo(Page<S> page, Class<P> target) {
         List<P> dataList = OrikaUtils.convertList(page.getRecords(),target);
-        return new PageVo<>(dataList,page.getTotal(),page.getPages(),page.hasNext(),page.hasPrevious(),page.getCurrent(),page.getSize());
+        return new PageVO<>(dataList,page.getTotal(),page.getPages(),page.hasNext(),page.hasPrevious(),page.getCurrent(),page.getSize());
     }
 
     /**

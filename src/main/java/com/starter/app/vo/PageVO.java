@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PageVo<T> implements Serializable {
+public class PageVO<T> implements Serializable {
 
     /**
      * 当前页
@@ -48,7 +48,7 @@ public class PageVo<T> implements Serializable {
     private List<T> records;
 
 
-    public PageVo(List<T> dataList,long total, long pageSize, boolean hasNext, boolean hasPrevious, long page, long size) {
+    public PageVO(List<T> dataList, long total, long pageSize, boolean hasNext, boolean hasPrevious, long page, long size) {
         this.records = dataList;
         this.total = total;
         this.pageSize = pageSize;

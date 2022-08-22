@@ -1,14 +1,14 @@
 package com.starter.app.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.starter.app.dto.LaunageDto;
+import com.starter.app.dto.LaunageDTO;
 import com.starter.app.entity.Launage;
-import com.starter.app.vo.LaunageVo;
-import com.starter.app.vo.PageVo;
+import com.starter.app.vo.LaunageVO;
+import com.starter.app.vo.PageVO;
 
 public interface LaunageService extends IService<Launage> {
 
-    PageVo<LaunageVo> queryPage(LaunageDto dto);
+    PageVO<LaunageVO> queryPage(LaunageDTO dto);
 
-    Boolean addLaunage(LaunageDto dto);
+    Boolean addLaunage(LaunageDTO dto);
 }

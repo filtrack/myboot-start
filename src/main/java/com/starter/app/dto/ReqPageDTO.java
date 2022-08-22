@@ -6,7 +6,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Data
-public class ReqPage implements Serializable {
+public class ReqPageDTO implements Serializable {
 
 
 

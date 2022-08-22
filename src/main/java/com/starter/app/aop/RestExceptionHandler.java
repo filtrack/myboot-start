@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import javax.validation.ValidationException;
+import java.rmi.ServerException;
 import java.util.stream.Collectors;
 
 
@@ -87,6 +88,12 @@ public class RestExceptionHandler {
     @ExceptionHandler(value = { HttpMessageNotReadableException.class})
     public CommonResult<String> handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
         return CommonResult.error(CodeEnum.CODE_CUSTOM.getCode(),"参数消息读取异常，请检查参数信息、请求方法、跨域或序列化问题 ");
+    }
+
+    @ExceptionHandler(value = { ServerException.class})
+    public CommonResult<String> handleServerException(ServerException e) {
+        log.error("异常信息:",e.getMessage());
+        return CommonResult.error(CodeEnum.CODE_CUSTOM.getCode(),e.getMessage());
     }
 
 }

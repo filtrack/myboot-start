@@ -46,7 +46,7 @@ public class RateLimiterAspect {
         } catch (ServiceException e) {
             throw e;
         } catch (Exception e) {
-            throw new RuntimeException("您的请求频率过快，请稍候再试");
+            throw new ServiceException("您的请求频率过快，请稍候再试");
         }
     }
 
