@@ -7,23 +7,23 @@ spring:
         rest:
             uris: http://127.0.0.1:9200
 
-    datasource:
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://127.0.0.1:3306/myapp?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false
-        username: root
-        password: ZIjing123
-
-        # 指定类型为我们自己的
-        type: com.zaxxer.hikari.HikariDataSource
-        hikari:
-            connection-timeout: 30000       # 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException， 默认:30秒
-            minimum-idle: 5                 # 最小连接数
-            maximum-pool-size: 20           # 最大连接数
-            auto-commit: true               # 自动提交
-            idle-timeout: 600000            # 连接超时的最大时长（毫秒），超时则被释放（retired），默认:10分钟
-            pool-name: DateSourceHikariCP   # 连接池名字
-            max-lifetime: 1800000           # 连接的生命时长（毫秒），超时而且没被使用则被释放（retired），默认:30分钟 1800000ms
-            connection-test-query: SELECT 1
+#    datasource:
+#        driver-class-name: com.mysql.cj.jdbc.Driver
+#        url: jdbc:mysql://127.0.0.1:3306/myapp?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+#        username: root
+#        password: ZIjing123
+#
+#        # 指定类型为我们自己的
+#        type: com.zaxxer.hikari.HikariDataSource
+#        hikari:
+#            connection-timeout: 30000       # 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException， 默认:30秒
+#            minimum-idle: 5                 # 最小连接数
+#            maximum-pool-size: 20           # 最大连接数
+#            auto-commit: true               # 自动提交
+#            idle-timeout: 600000            # 连接超时的最大时长（毫秒），超时则被释放（retired），默认:10分钟
+#            pool-name: DateSourceHikariCP   # 连接池名字
+#            max-lifetime: 1800000           # 连接的生命时长（毫秒），超时而且没被使用则被释放（retired），默认:30分钟 1800000ms
+#            connection-test-query: SELECT 1
 
     redis:
         host: 127.0.0.1
@@ -40,6 +40,38 @@ spring:
                 max-idle: 8
                 # 连接池中的最小空闲连接
                 min-idle: 1
+    shardingsphere:
+        datasource:
+            names: ds0,ds1
+            ds0:
+                driver-class-name: com.mysql.cj.jdbc.Driver
+                jdbcUrl: jdbc:mysql://127.0.0.1:3306/ds0?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+                password: ZIjing123
+                type: com.zaxxer.hikari.HikariDataSource
+                username: root
+            ds1:
+                driver-class-name: com.mysql.cj.jdbc.Driver
+                jdbcUrl: jdbc:mysql://127.0.0.1:3306/ds1?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+                password: ZIjing123
+                type: com.zaxxer.hikari.HikariDataSource
+                username: root
+        sharding:
+            default-database-strategy:
+                inline:
+                    algorithm-expression: ds$->{user_id % 2}
+                    sharding-column: user_id
+            tables:
+                t_order:
+                    actual-data-nodes: ds$->{0..1}.t_order$->{0..1}
+                    table-strategy:
+                        inline:
+                            algorithm-expression: t_order$->{id%2}
+                            sharding-column: id
+        props:
+          sql:
+              show: true
+
+
 
 
 # logging:
@@ -47,9 +79,9 @@ spring:
 #         org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: trace
 
 ##配置日志输出
-#mybatis-plus:
-#   configuration:
-#       log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+mybatis-plus:
+   configuration:
+       log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
 
 jwt:
     secret: "springboot"

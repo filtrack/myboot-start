@@ -19,15 +19,15 @@ public class MybatisPlusConfig {
         return interceptor;
     }
 
-    @Bean
-    public GlobalConfig globalConfig() {
-        GlobalConfig conf = new GlobalConfig();
-        conf.setIdentifierGenerator(new IdentifierGenerator() {
-            @Override
-            public Number nextId(Object entity) {
-                return IdUtil.getSnowflake().nextId();
-            }
-        });
-        return conf;
-    }
+//    @Bean
+//    public GlobalConfig globalConfig() {
+//        GlobalConfig conf = new GlobalConfig();
+//        conf.setIdentifierGenerator(new IdentifierGenerator() {
+//            @Override
+//            public Number nextId(Object entity) {
+//                return IdUtil.getSnowflake().nextId();
+//            }
+//        });
+//        return conf;
+//    }
 }

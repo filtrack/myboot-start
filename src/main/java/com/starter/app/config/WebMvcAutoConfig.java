@@ -22,7 +22,7 @@ public class WebMvcAutoConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(tokenValidateInterceptor)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/user/login","/doc/*");
+                .excludePathPatterns("/user/login","/doc/*","/add");
     }
 
     @Bean
