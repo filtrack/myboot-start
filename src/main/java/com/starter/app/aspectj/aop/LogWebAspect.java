@@ -1,4 +1,4 @@
-package com.starter.app.aop;
+package com.starter.app.aspectj.aop;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -17,7 +17,7 @@ import java.lang.reflect.Method;
 public class LogWebAspect {
 
 
-    @Pointcut("@annotation(com.starter.app.annotation.Log)")
+    @Pointcut("@annotation(com.starter.app.aspectj.annotation.Log)")
     public void pointcut() {
     }
 
@@ -53,7 +53,8 @@ public class LogWebAspect {
         }
         // 执行时长(毫秒)
         long time = System.currentTimeMillis() - beginTime;
-        log.info("请求耗时:[{}毫秒],响应结果:{} \n", time, result);
+        log.info("请求耗时:[{}毫秒]\n", time);
+        // log.info("请求耗时:[{}毫秒],响应结果:{} \n", time, result);
         return result;
     }
 

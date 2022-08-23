@@ -1,4 +1,4 @@
-package com.starter.app.dto;
+package com.starter.app.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;

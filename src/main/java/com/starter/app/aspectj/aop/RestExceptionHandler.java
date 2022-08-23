@@ -1,9 +1,9 @@
-package com.starter.app.aop;
+package com.starter.app.aspectj.aop;
 
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.starter.app.exception.CodeEnum;
-import com.starter.app.result.CommonResult;
+import com.starter.app.domain.result.CommonResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;

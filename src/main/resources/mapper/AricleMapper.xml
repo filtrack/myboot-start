@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.starter.app.mapper.AricleMapper">
 
-    <resultMap id="BaseResultMap" type="com.starter.app.entity.Aricle">
+    <resultMap id="BaseResultMap" type="com.starter.app.domain.entity.Aricle">
         <id property="id" column="id" jdbcType="BIGINT"/>
         <result property="lId" column="l_id" jdbcType="BIGINT"/>
         <result property="tId" column="t_id" jdbcType="BIGINT"/>
@@ -24,6 +24,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <sql id="all_cols">
         id,l_id,t_id,u_id,title,sub_title,content,keyword,read_count,status,delete_flag,version,create_time,update_time
     </sql>
+    <select id="queryPage" resultType="com.starter.app.domain.vo.AricleVO">
+            select t.* , tl.name,tu.username from t_aricle t
+                left join t_launage tl on tl.id = t.l_id
+                left join t_user tu on tu.id = t.u_id
+    </select>
 
 </mapper>
-

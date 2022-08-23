@@ -1,4 +1,4 @@
-package com.starter.app.result;
+package com.starter.app.domain.result;
 
 import com.starter.app.exception.CodeEnum;
 import lombok.Data;

@@ -1,6 +1,6 @@
-package com.starter.app.aop;
+package com.starter.app.aspectj.aop;
 
-import com.starter.app.annotation.RateLimiter;
+import com.starter.app.aspectj.annotation.RateLimiter;
 import com.starter.app.exception.ServiceException;
 import com.starter.app.utils.IpUtils;
 import lombok.extern.slf4j.Slf4j;

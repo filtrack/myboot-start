@@ -1,4 +1,4 @@
-package com.starter.app.entity;
+package com.starter.app.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;

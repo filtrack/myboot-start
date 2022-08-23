@@ -1,4 +1,4 @@
-package com.starter.app.annotation;
+package com.starter.app.aspectj.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

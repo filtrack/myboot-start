@@ -5,18 +5,18 @@ import cn.hutool.crypto.SecureUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.starter.app.dto.UserDTO;
-import com.starter.app.entity.User;
+import com.starter.app.domain.dto.UserDTO;
+import com.starter.app.domain.entity.User;
 import com.starter.app.mapper.UserMapper;
 import com.starter.app.service.UserService;
 import com.starter.app.config.GlobalConst;
-import com.starter.app.ext.MyPage;
+import com.starter.app.domain.ext.MyPage;
 import com.starter.app.service.JWTService;
 import com.starter.app.service.RedisService;
 import com.starter.app.utils.OrikaUtils;
-import com.starter.app.vo.LoginVO;
-import com.starter.app.vo.PageVO;
-import com.starter.app.vo.UserVO;
+import com.starter.app.domain.vo.LoginVO;
+import com.starter.app.domain.vo.PageVO;
+import com.starter.app.domain.vo.UserVO;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -47,7 +47,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>  implements U
 
     @Override
     public LoginVO login(String username, String password) {
-        com.starter.app.entity.User user = userMapper.findByUserName(username);
+        User user = userMapper.findByUserName(username);
         Assert.notNull(user, "用户名错误");
         Assert.isTrue(SecureUtil.md5(password).endsWith(user.getPassword()), "用户密码错误");
 
@@ -63,14 +63,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>  implements U
     @Override
     public Boolean addUser(UserDTO dto) {
         Assert.notNull(dto, "用户信息不能为空");
-        com.starter.app.entity.User user = OrikaUtils.convert(dto, com.starter.app.entity.User.class);
+        User user = OrikaUtils.convert(dto, User.class);
         return save(user);
     }
 
     @Override
     public UserVO findById(Long id) {
         Assert.notNull(id, "用户id不能为空");
-        com.starter.app.entity.User user = userMapper.selectById(id);
+        User user = userMapper.selectById(id);
         Assert.notNull(user, "用户信息不存在");
         return OrikaUtils.convert(user, UserVO.class);
     }
@@ -80,9 +80,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>  implements U
         LinkedHashMap<String,String> orderMap = new LinkedHashMap<>();
         orderMap.put("id","asc");
 
-        QueryWrapper<com.starter.app.entity.User> queryWrapper = new QueryWrapper<>();
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq(ObjectUtil.isNotEmpty(dto.getUsername()),"username",dto.getUsername());
-        Page<com.starter.app.entity.User> page = MyPage.of(dto.getPage(),dto.getSize(),orderMap);
+        Page<User> page = MyPage.of(dto.getPage(),dto.getSize(),orderMap);
         userMapper.selectPage(page,queryWrapper);
 
         return OrikaUtils.convertPageVo(page, UserVO.class);

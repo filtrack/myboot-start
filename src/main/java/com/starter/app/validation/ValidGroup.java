@@ -1,6 +1,8 @@
 package com.starter.app.validation;
 
 public interface ValidGroup {
-     interface Create {}
+     interface Insert {}
+     interface Delete {}
      interface Update {}
+     interface Select {}
 }

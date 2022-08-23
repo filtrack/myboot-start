@@ -3,7 +3,7 @@ package com.starter.app.interceptor;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.Claim;
 import com.starter.app.config.GlobalConst;
-import com.starter.app.vo.LoginVO;
+import com.starter.app.domain.vo.LoginVO;
 import com.starter.app.service.JWTService;
 import com.starter.app.service.RedisService;
 import lombok.SneakyThrows;

@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.starter.app.mapper.TopicMapper">
 
-    <resultMap id="BaseResultMap" type="com.starter.app.entity.Topic">
+    <resultMap id="BaseResultMap" type="com.starter.app.domain.entity.Topic">
         <id property="id" column="id" jdbcType="BIGINT"/>
         <result property="lId" column="l_id" jdbcType="BIGINT"/>
         <result property="uId" column="u_id" jdbcType="BIGINT"/>

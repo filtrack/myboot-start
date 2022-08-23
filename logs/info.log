@@ -1,56 +1,209 @@
-2022-08-22 17:36:40  INFO  com.zaxxer.hikari.HikariDataSource:350 - DateSourceHikariCP - Shutdown initiated...
-2022-08-22 17:36:40  INFO  com.zaxxer.hikari.HikariDataSource:352 - DateSourceHikariCP - Shutdown completed.
-2022-08-22 17:47:18  INFO  com.starter.app.MybootStartApplicationTests:55 - Starting MybootStartApplicationTests using Java 1.8.0_151 on hjw with PID 14604 (started by Admin in E:\coding\myboot-starter)
-2022-08-22 17:47:18  INFO  com.starter.app.MybootStartApplicationTests:640 - The following 1 profile is active: "dev"
-2022-08-22 17:47:19  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode
-2022-08-22 17:47:19  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2022-08-22 17:47:19  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
-2022-08-22 17:47:21  INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:478 - Autowired annotation is not supported on static fields: static com.starter.app.config.GlobalConst com.starter.app.utils.JWTUtils.globalParams
-2022-08-22 17:47:22  INFO  com.starter.app.MybootStartApplicationTests:61 - Started MybootStartApplicationTests in 4.463 seconds (JVM running for 5.543)
-2022-08-22 17:47:33  INFO  com.starter.app.BootApp:55 - Starting BootApp using Java 1.8.0_151 on hjw with PID 9300 (E:\coding\myboot-starter\target\classes started by Admin in E:\coding\myboot-starter)
-2022-08-22 17:47:33  INFO  com.starter.app.BootApp:640 - The following 1 profile is active: "dev"
-2022-08-22 17:47:35  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode
-2022-08-22 17:47:35  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2022-08-22 17:47:35  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
-2022-08-22 17:47:35  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 80 (http)
-2022-08-22 17:47:36  INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:292 - Root WebApplicationContext: initialization completed in 2264 ms
-2022-08-22 17:47:36  INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:478 - Autowired annotation is not supported on static fields: static com.starter.app.config.GlobalConst com.starter.app.utils.JWTUtils.globalParams
-2022-08-22 17:47:37  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 80 (http) with context path '/api'
-2022-08-22 17:47:37  INFO  com.starter.app.BootApp:61 - Started BootApp in 4.364 seconds (JVM running for 5.009)
-2022-08-22 17:47:42  INFO  org.springframework.web.servlet.DispatcherServlet:525 - Initializing Servlet 'dispatcherServlet'
-2022-08-22 17:47:42  INFO  org.springframework.web.servlet.DispatcherServlet:547 - Completed initialization in 1 ms
-2022-08-22 17:47:43 1561651318552367104 INFO  com.starter.app.aop.LogWebAspect:44 - 请求类和方法:com.starter.app.controller.UserController#login
-2022-08-22 17:47:43 1561651318552367104 INFO  com.starter.app.aop.LogWebAspect:45 - 请求参数信息:username:hjw password:123456 
-2022-08-22 17:47:43 1561651318552367104 INFO  com.zaxxer.hikari.HikariDataSource:110 - DateSourceHikariCP - Starting...
-2022-08-22 17:47:43 1561651318552367104 INFO  com.zaxxer.hikari.HikariDataSource:123 - DateSourceHikariCP - Start completed.
-2022-08-22 17:47:44 1561651318552367104 INFO  com.starter.app.aop.LogWebAspect:56 - 请求耗时:[987毫秒],响应结果:CommonResult(code=200, message=login successful, data=LoginVO(super=ReqPageDTO(page=1, Size=10), id=1551502630400090112, username=hjw, password=e10adc3949ba59abbe56e057f20f883e, nickname=zijing, photo=null, intro=我是一个比较懒的人~~, birthday=1989-11-22, sex=0, token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE2NjExNjE2NjMsInBheWxvYWQiOiIxNTUxNTAyNjMwNDAwMDkwMTEyIn0.wIW6xZjdzUPW9KEXvoxNVa2CM5ilXGGADjMqhs1Jeak), time=1661161664114) 
+2022-08-23 15:00:01  INFO  org.springframework.web.servlet.DispatcherServlet:525 - Initializing Servlet 'dispatcherServlet'
+2022-08-23 15:00:01  INFO  org.springframework.web.servlet.DispatcherServlet:547 - Completed initialization in 2 ms
+2022-08-23 15:00:01 1561971505411502080 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/aricle/list POST
+2022-08-23 15:00:02 1561971505411502080 INFO  LogWebAspect:44 - 请求类和方法:com.starter.app.controller.AricleController#list
+2022-08-23 15:00:02 1561971505411502080 INFO  LogWebAspect:45 - 请求参数信息:dto:AricleDTO(super=ReqPageDTO(page=1, Size=50), id=null, lId=null, tId=null, uId=null, title=null, subTitle=null, content=null, keyword=null, readCount=null, status=null, deleteFlag=null, version=null, createTime=null, updateTime=null)
+2022-08-23 15:00:02 1561971505411502080 INFO  LogWebAspect:51 - 方法执行异常:table can not be find -> class AricleDTO
+2022-08-23 15:00:48  INFO  org.hibernate.validator.internal.util.Version:21 - HV000001: Hibernate Validator 6.2.3.Final
+2022-08-23 15:00:48  INFO  com.starter.app.MyApp:55 - Starting BootApp using Java 1.8.0_151 on hjw with PID 15376 (E:\coding\myboot-starter\target\classes started by Admin in E:\coding\myboot-starter)
+2022-08-23 15:00:48  INFO  com.starter.app.MyApp:640 - The following 1 profile is active: "dev"
+2022-08-23 15:00:48  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-08-23 15:00:48  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-08-23 15:00:48  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2022-08-23 15:00:49  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 80 (http)
+2022-08-23 15:00:49  INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:292 - Root WebApplicationContext: initialization completed in 1374 ms
+2022-08-23 15:00:50  INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:478 - Autowired annotation is not supported on static fields: static com.starter.app.config.GlobalConst com.starter.app.utils.JWTUtils.globalParams
+2022-08-23 15:00:50  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 80 (http) with context path '/api'
+2022-08-23 15:00:50  INFO  com.starter.app.MyApp:61 - Started BootApp in 3.17 seconds (JVM running for 3.832)
+2022-08-23 15:00:51  INFO  org.springframework.web.servlet.DispatcherServlet:525 - Initializing Servlet 'dispatcherServlet'
+2022-08-23 15:00:51  INFO  org.springframework.web.servlet.DispatcherServlet:547 - Completed initialization in 1 ms
+2022-08-23 15:00:51 1561971714384261120 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/aricle/list POST
+2022-08-23 15:00:51 1561971714384261120 INFO  LogWebAspect:44 - 请求类和方法:com.starter.app.controller.AricleController#list
+2022-08-23 15:00:51 1561971714384261120 INFO  LogWebAspect:45 - 请求参数信息:dto:AricleDTO(super=ReqPageDTO(page=1, Size=50), id=null, lId=null, tId=null, uId=null, title=null, subTitle=null, content=null, keyword=null, readCount=null, status=null, deleteFlag=null, version=null, createTime=null, updateTime=null)
+2022-08-23 15:00:52 1561971714384261120 INFO  com.zaxxer.hikari.HikariDataSource:110 - DateSourceHikariCP - Starting...
+2022-08-23 15:00:52 1561971714384261120 INFO  com.zaxxer.hikari.HikariDataSource:123 - DateSourceHikariCP - Start completed.
+2022-08-23 15:00:52 1561971714384261120 INFO  LogWebAspect:56 - 请求耗时:[586毫秒]
 
-2022-08-22 17:47:45 1561651327817584640 INFO  com.starter.app.aop.LogWebAspect:44 - 请求类和方法:com.starter.app.controller.UserController#login
-2022-08-22 17:47:45 1561651327817584640 INFO  com.starter.app.aop.LogWebAspect:45 - 请求参数信息:username:hjw password:123456 
-2022-08-22 17:47:45 1561651327817584640 INFO  com.starter.app.aop.LogWebAspect:56 - 请求耗时:[7毫秒],响应结果:CommonResult(code=200, message=login successful, data=LoginVO(super=ReqPageDTO(page=1, Size=10), id=1551502630400090112, username=hjw, password=e10adc3949ba59abbe56e057f20f883e, nickname=zijing, photo=null, intro=我是一个比较懒的人~~, birthday=1989-11-22, sex=0, token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE2NjExNjE2NjUsInBheWxvYWQiOiIxNTUxNTAyNjMwNDAwMDkwMTEyIn0.AXzOIb7cHkRctIaMPGGlQHDesDyE5qIP-s5986pzAak), time=1661161665295) 
+2022-08-23 15:01:00 1561971752460152832 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/aricle/list POST
+2022-08-23 15:01:00 1561971752460152832 INFO  LogWebAspect:44 - 请求类和方法:com.starter.app.controller.AricleController#list
+2022-08-23 15:01:00 1561971752460152832 INFO  LogWebAspect:45 - 请求参数信息:dto:AricleDTO(super=ReqPageDTO(page=1, Size=50), id=null, lId=null, tId=null, uId=null, title=简介, subTitle=null, content=null, keyword=null, readCount=null, status=null, deleteFlag=null, version=null, createTime=null, updateTime=null)
+2022-08-23 15:01:00 1561971752460152832 INFO  LogWebAspect:56 - 请求耗时:[26毫秒]
 
-2022-08-22 17:47:53 1561651361866944512 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/user/list POST
-2022-08-22 17:47:53 1561651361866944512 INFO  com.starter.app.aop.LogWebAspect:44 - 请求类和方法:com.starter.app.controller.UserController#users
-2022-08-22 17:47:53 1561651361866944512 INFO  com.starter.app.aop.LogWebAspect:45 - 请求参数信息:userDto:UserDTO(super=ReqPageDTO(page=1, Size=10), id=null, username=null, password=null, nickname=null, photo=null, intro=null, birthday=null, sex=null, deleteFlag=null, version=null, createTime=null, updateTime=null) 
-2022-08-22 17:47:53 1561651361866944512 INFO  com.starter.app.aop.LogWebAspect:56 - 请求耗时:[95毫秒],响应结果:CommonResult(code=200, message=操作成功, data=PageVO(page=1, size=10, pageSize=1, total=6, hasNext=false, hasPrevious=false, records=[UserVO(super=ReqPageDTO(page=1, Size=10), id=1551502630400090112, username=hjw, password=e10adc3949ba59abbe56e057f20f883e, nickname=zijing, photo=null, intro=我是一个比较懒的人~~, birthday=1989-11-22, sex=0, deleteFlag=0, version=0, createTime=Mon Jul 25 17:40:27 CST 2022), UserVO(super=ReqPageDTO(page=1, Size=10), id=1551505145518678016, username=hermit, password=e10adc3949ba59abbe56e057f20f883e, nickname=hermit, photo=null, intro=我是一个比较勤快的人~~, birthday=1979-11-22, sex=0, deleteFlag=0, version=0, createTime=Mon Jul 25 17:50:27 CST 2022), UserVO(super=ReqPageDTO(page=1, Size=10), id=1551505312384933888, username=xiaoliu, password=e10adc3949ba59abbe56e057f20f883e, nickname=xiaoliu, photo=null, intro=我喜欢阅读和运毒~~, birthday=1988-09-22, sex=0, deleteFlag=0, version=0, createTime=Mon Jul 25 17:51:07 CST 2022), UserVO(super=ReqPageDTO(page=1, Size=10), id=1551505604476194816, username=lishutong, password=e10adc3949ba59abbe56e057f20f883e, nickname=李姝潼, photo=null, intro=我最近不喜欢吃饭了~~, birthday=2017-09-22, sex=0, deleteFlag=0, version=0, createTime=Mon Jul 25 17:52:17 CST 2022), UserVO(super=ReqPageDTO(page=1, Size=10), id=1551505752069607424, username=houjiale, password=e10adc3949ba59abbe56e057f20f883e, nickname=侯嘉乐, photo=null, intro=我是一个活泼爱动的活力宝宝~~, birthday=2016-12-12, sex=0, deleteFlag=0, version=0, createTime=Mon Jul 25 17:52:51 CST 2022), UserVO(super=ReqPageDTO(page=1, Size=10), id=1551579417736589313, username=houjiale_123, password=e10adc3949ba59abbe56e057f20f883e, nickname=侯嘉乐, photo=null, intro=我是一个活泼爱动的活力宝宝~~, birthday=2016-12-12, sex=0, deleteFlag=0, version=0, createTime=Mon Jul 25 22:45:35 CST 2022)]), time=1661161673552) 
+2022-08-23 15:04:56  INFO  com.zaxxer.hikari.HikariDataSource:350 - DateSourceHikariCP - Shutdown initiated...
+2022-08-23 15:04:56  INFO  com.zaxxer.hikari.HikariDataSource:352 - DateSourceHikariCP - Shutdown completed.
+2022-08-23 15:05:00  INFO  org.hibernate.validator.internal.util.Version:21 - HV000001: Hibernate Validator 6.2.3.Final
+2022-08-23 15:05:00  INFO  com.starter.app.MyApp:55 - Starting BootApp using Java 1.8.0_151 on hjw with PID 10576 (E:\coding\myboot-starter\target\classes started by Admin in E:\coding\myboot-starter)
+2022-08-23 15:05:00  INFO  com.starter.app.MyApp:640 - The following 1 profile is active: "dev"
+2022-08-23 15:05:01  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-08-23 15:05:01  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-08-23 15:05:01  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2022-08-23 15:05:02  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 80 (http)
+2022-08-23 15:05:02  INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:292 - Root WebApplicationContext: initialization completed in 1310 ms
+2022-08-23 15:05:02  INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:478 - Autowired annotation is not supported on static fields: static com.starter.app.config.GlobalConst com.starter.app.utils.JWTUtils.globalParams
+2022-08-23 15:05:03  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 80 (http) with context path '/api'
+2022-08-23 15:05:03  INFO  com.starter.app.MyApp:61 - Started BootApp in 3.017 seconds (JVM running for 3.677)
+2022-08-23 15:05:14  INFO  org.springframework.web.servlet.DispatcherServlet:525 - Initializing Servlet 'dispatcherServlet'
+2022-08-23 15:05:14  INFO  org.springframework.web.servlet.DispatcherServlet:547 - Completed initialization in 0 ms
+2022-08-23 15:05:15 1561972820803936256 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/aricle/list POST
+2022-08-23 15:05:15 1561972820803936256 INFO  LogWebAspect:44 - 请求类和方法:com.starter.app.controller.AricleController#list
+2022-08-23 15:05:15 1561972820803936256 INFO  LogWebAspect:45 - 请求参数信息:dto:AricleDTO(super=ReqPageDTO(page=1, Size=50), id=null, lId=null, tId=null, uId=null, title=简介, subTitle=null, content=null, keyword=null, readCount=null, status=null, deleteFlag=null, version=null, createTime=null, updateTime=null)
+2022-08-23 15:05:15 1561972820803936256 INFO  com.zaxxer.hikari.HikariDataSource:110 - DateSourceHikariCP - Starting...
+2022-08-23 15:05:16 1561972820803936256 INFO  com.zaxxer.hikari.HikariDataSource:123 - DateSourceHikariCP - Start completed.
+2022-08-23 15:05:16 1561972820803936256 INFO  LogWebAspect:56 - 请求耗时:[637毫秒]
 
-2022-08-22 17:48:10 1561651435556671488 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/user/1551505145518678016 GET
-2022-08-22 17:48:10 1561651435556671488 INFO  com.starter.app.aop.LogWebAspect:44 - 请求类和方法:com.starter.app.controller.UserController#user
-2022-08-22 17:48:10 1561651435556671488 INFO  com.starter.app.aop.LogWebAspect:45 - 请求参数信息:id:1551505145518678016 
-2022-08-22 17:48:10 1561651435556671488 INFO  com.starter.app.aop.LogWebAspect:56 - 请求耗时:[5毫秒],响应结果:CommonResult(code=200, message=操作成功, data=UserVO(super=ReqPageDTO(page=1, Size=10), id=1551505145518678016, username=hermit, password=e10adc3949ba59abbe56e057f20f883e, nickname=hermit, photo=null, intro=我是一个比较勤快的人~~, birthday=1979-11-22, sex=0, deleteFlag=0, version=0, createTime=Mon Jul 25 17:50:27 CST 2022), time=1661161690985) 
+2022-08-23 15:08:13  INFO  com.zaxxer.hikari.HikariDataSource:350 - DateSourceHikariCP - Shutdown initiated...
+2022-08-23 15:08:13  INFO  com.zaxxer.hikari.HikariDataSource:352 - DateSourceHikariCP - Shutdown completed.
+2022-08-23 15:08:18  INFO  org.hibernate.validator.internal.util.Version:21 - HV000001: Hibernate Validator 6.2.3.Final
+2022-08-23 15:08:18  INFO  com.starter.app.MyApp:55 - Starting BootApp using Java 1.8.0_151 on hjw with PID 17156 (E:\coding\myboot-starter\target\classes started by Admin in E:\coding\myboot-starter)
+2022-08-23 15:08:18  INFO  com.starter.app.MyApp:640 - The following 1 profile is active: "dev"
+2022-08-23 15:08:18  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-08-23 15:08:18  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-08-23 15:08:18  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2022-08-23 15:08:19  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 80 (http)
+2022-08-23 15:08:19  INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:292 - Root WebApplicationContext: initialization completed in 1277 ms
+2022-08-23 15:08:20  INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:478 - Autowired annotation is not supported on static fields: static com.starter.app.config.GlobalConst com.starter.app.utils.JWTUtils.globalParams
+2022-08-23 15:08:20  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 80 (http) with context path '/api'
+2022-08-23 15:08:20  INFO  com.starter.app.MyApp:61 - Started BootApp in 3.021 seconds (JVM running for 3.557)
+2022-08-23 15:08:30  INFO  org.springframework.web.servlet.DispatcherServlet:525 - Initializing Servlet 'dispatcherServlet'
+2022-08-23 15:08:30  INFO  org.springframework.web.servlet.DispatcherServlet:547 - Completed initialization in 1 ms
+2022-08-23 15:08:30 1561973639020335104 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/aricle/list POST
+2022-08-23 15:08:30 1561973639020335104 INFO  LogWebAspect:44 - 请求类和方法:com.starter.app.controller.AricleController#list
+2022-08-23 15:08:30 1561973639020335104 INFO  LogWebAspect:45 - 请求参数信息:dto:AricleDTO(super=ReqPageDTO(page=1, Size=50), id=null, lId=null, tId=null, uId=null, title=简介, subTitle=null, content=null, keyword=null, readCount=null, status=null, deleteFlag=null, version=null, createTime=null, updateTime=null)
+2022-08-23 15:08:31 1561973639020335104 INFO  com.zaxxer.hikari.HikariDataSource:110 - DateSourceHikariCP - Starting...
+2022-08-23 15:08:31 1561973639020335104 INFO  com.zaxxer.hikari.HikariDataSource:123 - DateSourceHikariCP - Start completed.
+2022-08-23 15:08:31 1561973639020335104 INFO  LogWebAspect:56 - 请求耗时:[579毫秒]
 
-2022-08-22 17:48:20 1561651473435430912 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/lan/list POST
-2022-08-22 17:48:20 1561651473435430912 INFO  com.starter.app.aop.LogWebAspect:44 - 请求类和方法:com.starter.app.controller.LaunageController#list
-2022-08-22 17:48:20 1561651473435430912 INFO  com.starter.app.aop.LogWebAspect:45 - 请求参数信息:dto:LaunageDTO(super=ReqPageDTO(page=1, Size=2), id=null, name=null, descs=null, deleteFlag=null, version=null, createTime=null, updateTime=null) 
-2022-08-22 17:48:20 1561651473435430912 INFO  com.starter.app.aop.LogWebAspect:56 - 请求耗时:[29毫秒],响应结果:CommonResult(code=200, message=操作成功, data=PageVO(page=1, size=2, pageSize=1, total=2, hasNext=false, hasPrevious=false, records=[LaunageVO(super=ReqPageDTO(page=1, Size=10), id=1551583015916720130, name=java, descs=面向对象开发语言, deleteFlag=0, version=0, createTime=Mon Jul 25 22:59:53 CST 2022, updateTime=Mon Jul 25 22:59:53 CST 2022), LaunageVO(super=ReqPageDTO(page=1, Size=10), id=1551583017351172097, name=golang, descs=高并发服务端开发, deleteFlag=0, version=0, createTime=Mon Jul 25 22:59:53 CST 2022, updateTime=Mon Jul 25 22:59:53 CST 2022)]), time=1661161700040) 
+2022-08-23 15:08:32 1561973647559938048 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/aricle/list POST
+2022-08-23 15:08:32 1561973647559938048 INFO  LogWebAspect:44 - 请求类和方法:com.starter.app.controller.AricleController#list
+2022-08-23 15:08:32 1561973647559938048 INFO  LogWebAspect:45 - 请求参数信息:dto:AricleDTO(super=ReqPageDTO(page=1, Size=50), id=null, lId=null, tId=null, uId=null, title=简介, subTitle=null, content=null, keyword=null, readCount=null, status=null, deleteFlag=null, version=null, createTime=null, updateTime=null)
+2022-08-23 15:08:32 1561973647559938048 INFO  LogWebAspect:56 - 请求耗时:[13毫秒]
 
-2022-08-22 17:48:27 1561651506805313536 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/topic/list POST
-2022-08-22 17:48:27  INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/error POST
-2022-08-22 17:48:33 1561651529731379200 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/topic/list POST
-2022-08-22 17:48:33  INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/error POST
-2022-08-22 17:48:34 1561651534080872448 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/topic/list POST
-2022-08-22 17:48:34  INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/error POST
-2022-08-22 17:48:35 1561651537478258688 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/topic/list POST
-2022-08-22 17:48:35  INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/error POST
-2022-08-22 17:49:42  INFO  com.zaxxer.hikari.HikariDataSource:350 - DateSourceHikariCP - Shutdown initiated...
-2022-08-22 17:49:42  INFO  com.zaxxer.hikari.HikariDataSource:352 - DateSourceHikariCP - Shutdown completed.
+2022-08-23 15:08:33 1561973651007655936 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/aricle/list POST
+2022-08-23 15:08:33 1561973651007655936 INFO  LogWebAspect:44 - 请求类和方法:com.starter.app.controller.AricleController#list
+2022-08-23 15:08:33 1561973651007655936 INFO  LogWebAspect:45 - 请求参数信息:dto:AricleDTO(super=ReqPageDTO(page=1, Size=50), id=null, lId=null, tId=null, uId=null, title=简介, subTitle=null, content=null, keyword=null, readCount=null, status=null, deleteFlag=null, version=null, createTime=null, updateTime=null)
+2022-08-23 15:08:33 1561973651007655936 INFO  LogWebAspect:56 - 请求耗时:[17毫秒]
+
+2022-08-23 15:08:34 1561973655130656768 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/aricle/list POST
+2022-08-23 15:08:34 1561973655130656768 INFO  LogWebAspect:44 - 请求类和方法:com.starter.app.controller.AricleController#list
+2022-08-23 15:08:34 1561973655130656768 INFO  LogWebAspect:45 - 请求参数信息:dto:AricleDTO(super=ReqPageDTO(page=1, Size=50), id=null, lId=null, tId=null, uId=null, title=简介, subTitle=null, content=null, keyword=null, readCount=null, status=null, deleteFlag=null, version=null, createTime=null, updateTime=null)
+2022-08-23 15:08:34 1561973655130656768 INFO  LogWebAspect:51 - 方法执行异常:您的请求频率过快，请稍候再试
+2022-08-23 15:08:34 1561973658439962624 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/aricle/list POST
+2022-08-23 15:08:34 1561973658439962624 INFO  LogWebAspect:44 - 请求类和方法:com.starter.app.controller.AricleController#list
+2022-08-23 15:08:34 1561973658439962624 INFO  LogWebAspect:45 - 请求参数信息:dto:AricleDTO(super=ReqPageDTO(page=1, Size=50), id=null, lId=null, tId=null, uId=null, title=简介, subTitle=null, content=null, keyword=null, readCount=null, status=null, deleteFlag=null, version=null, createTime=null, updateTime=null)
+2022-08-23 15:08:34 1561973658439962624 INFO  LogWebAspect:51 - 方法执行异常:您的请求频率过快，请稍候再试
+2022-08-23 15:08:35 1561973661891874816 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/aricle/list POST
+2022-08-23 15:08:35 1561973661891874816 INFO  LogWebAspect:44 - 请求类和方法:com.starter.app.controller.AricleController#list
+2022-08-23 15:08:35 1561973661891874816 INFO  LogWebAspect:45 - 请求参数信息:dto:AricleDTO(super=ReqPageDTO(page=1, Size=50), id=null, lId=null, tId=null, uId=null, title=简介, subTitle=null, content=null, keyword=null, readCount=null, status=null, deleteFlag=null, version=null, createTime=null, updateTime=null)
+2022-08-23 15:08:35 1561973661891874816 INFO  LogWebAspect:51 - 方法执行异常:您的请求频率过快，请稍候再试
+2022-08-23 15:08:36 1561973666723713024 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/aricle/list POST
+2022-08-23 15:08:36 1561973666723713024 INFO  LogWebAspect:44 - 请求类和方法:com.starter.app.controller.AricleController#list
+2022-08-23 15:08:36 1561973666723713024 INFO  LogWebAspect:45 - 请求参数信息:dto:AricleDTO(super=ReqPageDTO(page=1, Size=50), id=null, lId=null, tId=null, uId=null, title=简介, subTitle=null, content=null, keyword=null, readCount=null, status=null, deleteFlag=null, version=null, createTime=null, updateTime=null)
+2022-08-23 15:08:36 1561973666723713024 INFO  LogWebAspect:56 - 请求耗时:[12毫秒]
+
+2022-08-23 15:08:37 1561973670175625216 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/aricle/list POST
+2022-08-23 15:08:37 1561973670175625216 INFO  LogWebAspect:44 - 请求类和方法:com.starter.app.controller.AricleController#list
+2022-08-23 15:08:37 1561973670175625216 INFO  LogWebAspect:45 - 请求参数信息:dto:AricleDTO(super=ReqPageDTO(page=1, Size=50), id=null, lId=null, tId=null, uId=null, title=简介, subTitle=null, content=null, keyword=null, readCount=null, status=null, deleteFlag=null, version=null, createTime=null, updateTime=null)
+2022-08-23 15:08:37 1561973670175625216 INFO  LogWebAspect:56 - 请求耗时:[12毫秒]
+
+2022-08-23 15:08:38 1561973673661091840 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/aricle/list POST
+2022-08-23 15:08:38 1561973673661091840 INFO  LogWebAspect:44 - 请求类和方法:com.starter.app.controller.AricleController#list
+2022-08-23 15:08:38 1561973673661091840 INFO  LogWebAspect:45 - 请求参数信息:dto:AricleDTO(super=ReqPageDTO(page=1, Size=50), id=null, lId=null, tId=null, uId=null, title=简介, subTitle=null, content=null, keyword=null, readCount=null, status=null, deleteFlag=null, version=null, createTime=null, updateTime=null)
+2022-08-23 15:08:38 1561973673661091840 INFO  LogWebAspect:56 - 请求耗时:[10毫秒]
+
+2022-08-23 15:08:39 1561973676752293888 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/aricle/list POST
+2022-08-23 15:08:39 1561973676752293888 INFO  LogWebAspect:44 - 请求类和方法:com.starter.app.controller.AricleController#list
+2022-08-23 15:08:39 1561973676752293888 INFO  LogWebAspect:45 - 请求参数信息:dto:AricleDTO(super=ReqPageDTO(page=1, Size=50), id=null, lId=null, tId=null, uId=null, title=简介, subTitle=null, content=null, keyword=null, readCount=null, status=null, deleteFlag=null, version=null, createTime=null, updateTime=null)
+2022-08-23 15:08:39 1561973676752293888 INFO  LogWebAspect:51 - 方法执行异常:您的请求频率过快，请稍候再试
+2022-08-23 15:08:40 1561973679965130752 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/aricle/list POST
+2022-08-23 15:08:40 1561973679965130752 INFO  LogWebAspect:44 - 请求类和方法:com.starter.app.controller.AricleController#list
+2022-08-23 15:08:40 1561973679965130752 INFO  LogWebAspect:45 - 请求参数信息:dto:AricleDTO(super=ReqPageDTO(page=1, Size=50), id=null, lId=null, tId=null, uId=null, title=简介, subTitle=null, content=null, keyword=null, readCount=null, status=null, deleteFlag=null, version=null, createTime=null, updateTime=null)
+2022-08-23 15:08:40 1561973679965130752 INFO  LogWebAspect:51 - 方法执行异常:您的请求频率过快，请稍候再试
+2022-08-23 15:09:09  INFO  com.zaxxer.hikari.HikariDataSource:350 - DateSourceHikariCP - Shutdown initiated...
+2022-08-23 15:09:09  INFO  com.zaxxer.hikari.HikariDataSource:352 - DateSourceHikariCP - Shutdown completed.
+2022-08-23 15:09:13  INFO  org.hibernate.validator.internal.util.Version:21 - HV000001: Hibernate Validator 6.2.3.Final
+2022-08-23 15:09:13  INFO  com.starter.app.MyApp:55 - Starting BootApp using Java 1.8.0_151 on hjw with PID 17080 (E:\coding\myboot-starter\target\classes started by Admin in E:\coding\myboot-starter)
+2022-08-23 15:09:13  INFO  com.starter.app.MyApp:640 - The following 1 profile is active: "dev"
+2022-08-23 15:09:14  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-08-23 15:09:14  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-08-23 15:09:14  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2022-08-23 15:09:14  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 80 (http)
+2022-08-23 15:09:14  INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:292 - Root WebApplicationContext: initialization completed in 1120 ms
+2022-08-23 15:09:15  INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:478 - Autowired annotation is not supported on static fields: static com.starter.app.config.GlobalConst com.starter.app.utils.JWTUtils.globalParams
+2022-08-23 15:09:16  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 80 (http) with context path '/api'
+2022-08-23 15:09:16  INFO  com.starter.app.MyApp:61 - Started BootApp in 2.972 seconds (JVM running for 3.615)
+2022-08-23 15:09:20  INFO  org.springframework.web.servlet.DispatcherServlet:525 - Initializing Servlet 'dispatcherServlet'
+2022-08-23 15:09:20  INFO  org.springframework.web.servlet.DispatcherServlet:547 - Completed initialization in 1 ms
+2022-08-23 15:09:20 1561973850211889152 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/aricle/list POST
+2022-08-23 15:09:21 1561973850211889152 INFO  LogWebAspect:44 - 请求类和方法:com.starter.app.controller.AricleController#list
+2022-08-23 15:09:21 1561973850211889152 INFO  LogWebAspect:45 - 请求参数信息:dto:AricleDTO(super=ReqPageDTO(page=1, Size=50), id=null, lId=null, tId=null, uId=null, title=简介, subTitle=null, content=null, keyword=null, readCount=null, status=null, deleteFlag=null, version=null, createTime=null, updateTime=null)
+2022-08-23 15:09:21 1561973850211889152 INFO  com.zaxxer.hikari.HikariDataSource:110 - DateSourceHikariCP - Starting...
+2022-08-23 15:09:21 1561973850211889152 INFO  com.zaxxer.hikari.HikariDataSource:123 - DateSourceHikariCP - Start completed.
+2022-08-23 15:09:21 1561973850211889152 INFO  LogWebAspect:56 - 请求耗时:[422毫秒]
+
+2022-08-23 15:10:46  INFO  com.zaxxer.hikari.HikariDataSource:350 - DateSourceHikariCP - Shutdown initiated...
+2022-08-23 15:10:46  INFO  com.zaxxer.hikari.HikariDataSource:352 - DateSourceHikariCP - Shutdown completed.
+2022-08-23 15:10:51  INFO  org.hibernate.validator.internal.util.Version:21 - HV000001: Hibernate Validator 6.2.3.Final
+2022-08-23 15:10:51  INFO  com.starter.app.MyApp:55 - Starting BootApp using Java 1.8.0_151 on hjw with PID 14284 (E:\coding\myboot-starter\target\classes started by Admin in E:\coding\myboot-starter)
+2022-08-23 15:10:51  INFO  com.starter.app.MyApp:640 - The following 1 profile is active: "dev"
+2022-08-23 15:10:51  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-08-23 15:10:51  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-08-23 15:10:51  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2022-08-23 15:10:52  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 80 (http)
+2022-08-23 15:10:52  INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:292 - Root WebApplicationContext: initialization completed in 1278 ms
+2022-08-23 15:10:53  INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:478 - Autowired annotation is not supported on static fields: static com.starter.app.config.GlobalConst com.starter.app.utils.JWTUtils.globalParams
+2022-08-23 15:10:53  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 80 (http) with context path '/api'
+2022-08-23 15:10:53  INFO  com.starter.app.MyApp:61 - Started BootApp in 3.04 seconds (JVM running for 3.724)
+2022-08-23 15:11:09  INFO  org.hibernate.validator.internal.util.Version:21 - HV000001: Hibernate Validator 6.2.3.Final
+2022-08-23 15:11:09  INFO  com.starter.app.MyApp:55 - Starting BootApp using Java 1.8.0_151 on hjw with PID 17052 (E:\coding\myboot-starter\target\classes started by Admin in E:\coding\myboot-starter)
+2022-08-23 15:11:09  INFO  com.starter.app.MyApp:640 - The following 1 profile is active: "dev"
+2022-08-23 15:11:09  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-08-23 15:11:09  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-08-23 15:11:09  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2022-08-23 15:11:10  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 80 (http)
+2022-08-23 15:11:10  INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:292 - Root WebApplicationContext: initialization completed in 1243 ms
+2022-08-23 15:11:11  INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:478 - Autowired annotation is not supported on static fields: static com.starter.app.config.GlobalConst com.starter.app.utils.JWTUtils.globalParams
+2022-08-23 15:11:11  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 80 (http) with context path '/api'
+2022-08-23 15:11:11  INFO  com.starter.app.MyApp:61 - Started BootApp in 2.904 seconds (JVM running for 3.53)
+2022-08-23 15:11:15  INFO  org.springframework.web.servlet.DispatcherServlet:525 - Initializing Servlet 'dispatcherServlet'
+2022-08-23 15:11:15  INFO  org.springframework.web.servlet.DispatcherServlet:547 - Completed initialization in 0 ms
+2022-08-23 15:11:15 1561974332678504448 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/aricle/list POST
+2022-08-23 15:11:16 1561974332678504448 INFO  LogWebAspect:44 - 请求类和方法:com.starter.app.controller.AricleController#list
+2022-08-23 15:11:16 1561974332678504448 INFO  LogWebAspect:45 - 请求参数信息:dto:AricleDTO(super=ReqPageDTO(page=1, Size=50), id=null, lId=null, tId=null, uId=null, title=简介, subTitle=null, content=null, keyword=null, readCount=null, status=null, deleteFlag=null, version=null, createTime=null, updateTime=null)
+2022-08-23 15:11:16 1561974332678504448 INFO  com.zaxxer.hikari.HikariDataSource:110 - DateSourceHikariCP - Starting...
+2022-08-23 15:11:16 1561974332678504448 INFO  com.zaxxer.hikari.HikariDataSource:123 - DateSourceHikariCP - Start completed.
+2022-08-23 15:11:16 1561974332678504448 INFO  LogWebAspect:56 - 请求耗时:[615毫秒]
+
+2022-08-23 15:11:26 1561974378593550336 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/aricle/list POST
+2022-08-23 15:11:26 1561974378593550336 INFO  LogWebAspect:44 - 请求类和方法:com.starter.app.controller.AricleController#list
+2022-08-23 15:11:26 1561974378593550336 INFO  LogWebAspect:45 - 请求参数信息:dto:AricleDTO(super=ReqPageDTO(page=1, Size=50), id=null, lId=null, tId=null, uId=null, title=简介, subTitle=null, content=null, keyword=null, readCount=null, status=null, deleteFlag=null, version=null, createTime=null, updateTime=null)
+2022-08-23 15:11:26 1561974378593550336 INFO  LogWebAspect:56 - 请求耗时:[22毫秒]
+
+2022-08-23 15:32:06  INFO  com.zaxxer.hikari.HikariDataSource:350 - DateSourceHikariCP - Shutdown initiated...
+2022-08-23 15:32:06  INFO  com.zaxxer.hikari.HikariDataSource:352 - DateSourceHikariCP - Shutdown completed.
+2022-08-23 16:26:53  INFO  org.hibernate.validator.internal.util.Version:21 - HV000001: Hibernate Validator 6.2.3.Final
+2022-08-23 16:26:53  INFO  com.starter.app.MyApp:55 - Starting MyApp using Java 1.8.0_151 on hjw with PID 2468 (E:\coding\myboot-starter\target\classes started by Admin in E:\coding\myboot-starter)
+2022-08-23 16:26:53  INFO  com.starter.app.MyApp:640 - The following 1 profile is active: "dev"
+2022-08-23 16:26:53  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode
+2022-08-23 16:26:53  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-08-23 16:26:53  INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2022-08-23 16:26:54  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 80 (http)
+2022-08-23 16:26:54  INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:292 - Root WebApplicationContext: initialization completed in 1148 ms
+2022-08-23 16:26:55  INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor:478 - Autowired annotation is not supported on static fields: static com.starter.app.config.GlobalConst com.starter.app.utils.JWTUtils.globalParams
+2022-08-23 16:26:55  INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 80 (http) with context path '/api'
+2022-08-23 16:26:55  INFO  com.starter.app.MyApp:61 - Started MyApp in 2.818 seconds (JVM running for 3.359)
+2022-08-23 16:26:58  INFO  org.springframework.web.servlet.DispatcherServlet:525 - Initializing Servlet 'dispatcherServlet'
+2022-08-23 16:26:58  INFO  org.springframework.web.servlet.DispatcherServlet:547 - Completed initialization in 1 ms
+2022-08-23 16:26:59 1561993389234466816 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/aricle/list POST
+2022-08-23 16:27:02 1561993405374148608 INFO  com.starter.app.aspectj.aop.LogWebAspect:44 - 请求类和方法:com.starter.app.controller.UserController#login
+2022-08-23 16:27:02 1561993405374148608 INFO  com.starter.app.aspectj.aop.LogWebAspect:45 - 请求参数信息:username:hjw password:123456 
+2022-08-23 16:27:03 1561993405374148608 INFO  com.zaxxer.hikari.HikariDataSource:110 - DateSourceHikariCP - Starting...
+2022-08-23 16:27:03 1561993405374148608 INFO  com.zaxxer.hikari.HikariDataSource:123 - DateSourceHikariCP - Start completed.
+2022-08-23 16:27:03 1561993405374148608 INFO  com.starter.app.aspectj.aop.LogWebAspect:56 - 请求耗时:[505毫秒]
+
+2022-08-23 16:27:29 1561993516825194496 INFO  c.starter.app.interceptor.TokenValidateInterceptor:39 - 请求地址: http://127.0.0.1/api/aricle/list POST
+2022-08-23 16:27:29 1561993516825194496 INFO  com.starter.app.aspectj.aop.LogWebAspect:44 - 请求类和方法:com.starter.app.controller.AricleController#list
+2022-08-23 16:27:29 1561993516825194496 INFO  com.starter.app.aspectj.aop.LogWebAspect:45 - 请求参数信息:dto:AricleDTO(super=ReqPageDTO(page=1, Size=50), id=null, lId=null, tId=null, uId=null, title=简介, subTitle=null, content=null, keyword=null, readCount=null, status=null, deleteFlag=null, version=null, createTime=null, updateTime=null) 
+2022-08-23 16:27:29 1561993516825194496 INFO  com.starter.app.aspectj.aop.LogWebAspect:56 - 请求耗时:[130毫秒]
+
+2022-08-23 16:59:40  INFO  com.zaxxer.hikari.HikariDataSource:350 - DateSourceHikariCP - Shutdown initiated...
+2022-08-23 16:59:40  INFO  com.zaxxer.hikari.HikariDataSource:352 - DateSourceHikariCP - Shutdown completed.

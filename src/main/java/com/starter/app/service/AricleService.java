@@ -1,12 +1,12 @@
 package com.starter.app.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.starter.app.dto.AricleDTO;
-import com.starter.app.entity.Aricle;
-import com.starter.app.vo.AricleVO;
-import com.starter.app.vo.PageVO;
+import com.github.yulichang.base.MPJBaseService;
+import com.starter.app.domain.dto.AricleDTO;
+import com.starter.app.domain.entity.Aricle;
+import com.starter.app.domain.vo.AricleVO;
+import com.starter.app.domain.vo.PageVO;
 
-public interface AricleService extends IService<Aricle> {
+public interface AricleService extends MPJBaseService<Aricle> {
 
     Boolean addAricle(AricleDTO dto);
 

@@ -1,7 +1,7 @@
 package com.starter.app.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.starter.app.entity.Launage;
+import com.starter.app.domain.entity.Launage;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

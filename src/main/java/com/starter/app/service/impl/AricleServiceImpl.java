@@ -1,17 +1,20 @@
 package com.starter.app.service.impl;
 
 import cn.hutool.core.util.ObjectUtil;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.starter.app.dto.AricleDTO;
-import com.starter.app.entity.Aricle;
-import com.starter.app.ext.MyPage;
+import com.github.yulichang.base.MPJBaseServiceImpl;
+import com.github.yulichang.wrapper.MPJLambdaWrapper;
+import com.starter.app.domain.dto.AricleDTO;
+import com.starter.app.domain.entity.Aricle;
+import com.starter.app.domain.entity.Launage;
+import com.starter.app.domain.entity.Topic;
+import com.starter.app.domain.entity.User;
+import com.starter.app.domain.ext.MyPage;
 import com.starter.app.mapper.AricleMapper;
 import com.starter.app.service.AricleService;
 import com.starter.app.utils.OrikaUtils;
-import com.starter.app.vo.AricleVO;
-import com.starter.app.vo.PageVO;
+import com.starter.app.domain.vo.AricleVO;
+import com.starter.app.domain.vo.PageVO;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -23,7 +26,7 @@ import java.util.LinkedHashMap;
 * date 2022-08-22
 */
 @Service
-public class AricleServiceImpl extends ServiceImpl<AricleMapper, Aricle>  implements AricleService {
+public class AricleServiceImpl extends MPJBaseServiceImpl<AricleMapper, Aricle>  implements AricleService {
 
     final AricleMapper aricleMapper;
     public AricleServiceImpl(AricleMapper aricleMapper) {
@@ -58,13 +61,22 @@ public class AricleServiceImpl extends ServiceImpl<AricleMapper, Aricle>  implem
     public PageVO<AricleVO> queryPage(AricleDTO dto) {
         LinkedHashMap<String,String> orderMap = new LinkedHashMap<>();
         orderMap.put("read_count","desc");
-        QueryWrapper<Aricle> queryWrapper = new QueryWrapper<>();
-        queryWrapper.like(ObjectUtil.isNotEmpty(dto.getTitle()),"title",dto.getTitle());
-        queryWrapper.like(ObjectUtil.isNotEmpty(dto.getKeyword()),"keyword",dto.getKeyword());
-        queryWrapper.eq("status",1);
-        Page<Aricle> page = MyPage.of(dto.getPage(),dto.getSize(),orderMap);
-        aricleMapper.selectPage(page,queryWrapper);
+        orderMap.put("id","desc");
 
+        MPJLambdaWrapper<AricleDTO> queryWrapper = new MPJLambdaWrapper<>();
+        queryWrapper
+                .selectAll(Aricle.class)
+                .select(User::getUsername)
+                .selectAs(Launage::getName,"launage")
+                .selectAs(Topic::getTitle,"topic")
+                .leftJoin(User.class,User::getId,Aricle::getUId)
+                .leftJoin(Launage.class,Launage::getId,Aricle::getLId)
+                .leftJoin(Topic.class,Topic::getId,Aricle::getTId)
+                .like(ObjectUtil.isNotEmpty(dto.getTitle()),Aricle::getTitle,dto.getTitle())
+                .like(ObjectUtil.isNotEmpty(dto.getKeyword()),Aricle::getKeyword,dto.getKeyword());
+
+        Page<AricleVO> page = MyPage.of(dto.getPage(),dto.getSize(),orderMap);
+        aricleMapper.selectJoinPage(page, AricleVO.class,queryWrapper);
         return OrikaUtils.convertPageVo(page, AricleVO.class);
     }
 }

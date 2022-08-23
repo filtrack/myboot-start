@@ -1,6 +1,6 @@
-package com.starter.app.aop;
+package com.starter.app.aspectj.aop;
 
-import com.starter.app.annotation.Log;
+import com.starter.app.aspectj.annotation.Log;
 import com.starter.app.utils.IpUtils;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +23,7 @@ import java.lang.reflect.Method;
 @Aspect
 public class LogAccessAspect {
 
-    @Pointcut("@annotation(com.starter.app.annotation.Log)")
+    @Pointcut("@annotation(com.starter.app.aspectj.annotation.Log)")
     public void pointcut() { }
 
     @SneakyThrows

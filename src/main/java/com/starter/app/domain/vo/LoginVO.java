@@ -1,7 +1,7 @@
-package com.starter.app.vo;
+package com.starter.app.domain.vo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.starter.app.dto.ReqPageDTO;
+import com.starter.app.domain.dto.ReqPageDTO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;

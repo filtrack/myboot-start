@@ -1,12 +1,12 @@
 package com.starter.app.controller;
 
-import com.starter.app.annotation.Log;
-import com.starter.app.annotation.RateLimiter;
-import com.starter.app.dto.AricleDTO;
-import com.starter.app.result.CommonResult;
+import com.starter.app.aspectj.annotation.Log;
+import com.starter.app.aspectj.annotation.RateLimiter;
+import com.starter.app.domain.dto.AricleDTO;
+import com.starter.app.domain.result.CommonResult;
 import com.starter.app.service.AricleService;
-import com.starter.app.vo.AricleVO;
-import com.starter.app.vo.PageVO;
+import com.starter.app.domain.vo.AricleVO;
+import com.starter.app.domain.vo.PageVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
