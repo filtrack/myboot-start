@@ -67,21 +67,21 @@ spring:
                         inline:
                             algorithm-expression: t_order$->{id%2}
                             sharding-column: id
-        props:
-          sql:
-              show: true
+        # props:
+        #   sql:
+        #       show: true
 
 
 
 
-# logging:
-#     level:
-#         org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: trace
+logging:
+    level:
+        org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: trace
 
 ##配置日志输出
-mybatis-plus:
-   configuration:
-       log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+# mybatis-plus:
+#    configuration:
+#        log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
 
 jwt:
     secret: "springboot"

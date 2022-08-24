@@ -1,12 +1,12 @@
 package com.starter.app.domain.entity;
 
+import java.io.Serializable;
+
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
-import java.io.Serializable;
+import lombok.Data;
+import lombok.ToString;
 
 /**
 * author HJW

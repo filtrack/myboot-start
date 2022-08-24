@@ -19,7 +19,7 @@ public class OrderVO extends ReqPageDTO {
 
     private String cloumn;
 
-    private Integer id;
+    private Long id;
 
     private Integer orderId;
 

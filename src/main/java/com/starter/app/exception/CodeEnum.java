@@ -1,7 +1,6 @@
 package com.starter.app.exception;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -23,6 +22,7 @@ public enum CodeEnum {
     /**
      * 提示信息
      */
+
     private String msg;
 
 }

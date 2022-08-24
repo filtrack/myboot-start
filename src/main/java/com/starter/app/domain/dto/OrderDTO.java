@@ -17,7 +17,7 @@ public class OrderDTO extends ReqPageDTO{
     private static final long serialVersionUID = 1L;
 
     private String cloumn;
-    private Integer id;
+    private Long id;
     private Integer orderId;
     private Integer userId;
 
